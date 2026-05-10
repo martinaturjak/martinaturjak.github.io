@@ -1,278 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Martina Turjak — UX Researcher & Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --purple-deep: #1a0533;
-      --purple-mid: #3d1a6e;
-      --purple-light: #7c4dbe;
-      --purple-soft: #b39ddb;
-      --cream: #f5f0eb;
-      --white: #ffffff;
-      --text-dark: #1a1a2e;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.5rem 4rem;
-      background: rgba(26, 5, 51, 0.88);
-      backdrop-filter: blur(12px);
-    }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); letter-spacing: 0.05em; text-decoration: none; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--white); }
-
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 50%, #5b2d8e 100%);
-      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-      padding: 8rem 4rem 4rem; position: relative; overflow: hidden;
-    }
-    .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(124,77,190,0.3) 0%, transparent 70%); pointer-events: none; }
-    .hero-text { position: relative; z-index: 2; }
-    .hero-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-    .hero-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--purple-soft); }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 1.5rem; }
-    .hero-title em { font-style: italic; color: var(--purple-soft); }
-    .hero-roles { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .hero-role-tag { padding: 0.4rem 1rem; border: 1px solid rgba(179,157,219,0.4); color: var(--purple-soft); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
-    .hero-desc { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 440px; margin-bottom: 2.5rem; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; border: 1px solid rgba(255,255,255,0.3); color: var(--white); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; }
-    .hero-cta:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
-    .hero-cta-arrow { transition: transform 0.3s; }
-    .hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
-
-    .hero-image { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
-    .hero-image-frame { position: relative; width: 380px; height: 480px; }
-    .hero-image-frame::before { content: ''; position: absolute; top: -16px; right: -16px; width: 100%; height: 100%; border: 1px solid rgba(179,157,219,0.35); pointer-events: none; z-index: 0; }
-    .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; position: relative; z-index: 1; }
-    .hero-image-frame::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, rgba(26,5,51,0.6), transparent); z-index: 2; pointer-events: none; }
-    .hero-name-overlay { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 3; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.85); letter-spacing: 0.05em; }
-    .photo-placeholder { width:100%;height:100%;background:linear-gradient(135deg,rgba(124,77,190,0.5),rgba(26,5,51,0.8));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;color:rgba(255,255,255,0.4);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase; }
-
-    .about { padding: 8rem 4rem; display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; max-width: 1200px; margin: 0 auto; }
-    .section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); padding-top: 0.5rem; }
-    .about-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.3; color: var(--purple-deep); margin-bottom: 2rem; }
-    .about-content p { font-size: 1rem; line-height: 1.9; color: #444; margin-bottom: 1.5rem; }
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
-    .skill-item { padding: 1.25rem 1.5rem; border: 1px solid rgba(124,77,190,0.2); font-size: 0.85rem; color: var(--purple-mid); letter-spacing: 0.05em; transition: all 0.3s; }
-    .skill-item:hover { background: var(--purple-mid); color: var(--white); border-color: var(--purple-mid); }
-
-    .work { background: var(--purple-deep); padding: 8rem 4rem; }
-    .work-header { max-width: 1200px; margin: 0 auto 5rem; display: flex; justify-content: space-between; align-items: flex-end; }
-    .work-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); }
-    .work-title em { font-style: italic; color: var(--purple-soft); }
-    .work-count { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); }
-    .case-studies { max-width: 1200px; margin: 0 auto; display: grid; gap: 2rem; }
-
-    .case-study-card { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; transition: all 0.4s; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.08); min-height: 360px; }
-    .case-study-card:hover { border-color: rgba(179,157,219,0.3); transform: translateY(-4px); }
-
-    .card-visual { position: relative; overflow: hidden; min-height: 300px; }
-    .card-bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-    .case-study-card:hover .card-bg-photo { transform: scale(1.05); }
-    .card-bg-overlay { position: absolute; inset: 0; z-index: 1; }
-    .card-visual-label { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.2); line-height: 1; user-select: none; }
-    .card-year-badge { position: absolute; top: 1.5rem; right: 1.5rem; z-index: 2; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); padding: 0.3rem 0.75rem; backdrop-filter: blur(4px); }
-    .card-pattern { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.07; z-index: 1; }
-    .card-icon { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; }
-
-    .card-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; background: rgba(255,255,255,0.04); }
-    .card-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 1.25rem; }
-    .card-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
-    .card-title em { font-style: italic; }
-    .card-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
-    .card-meta { display: flex; gap: 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
-    .card-link { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); display: flex; align-items: center; gap: 0.5rem; transition: gap 0.3s; }
-    .case-study-card:hover .card-link { gap: 1rem; }
-
-    .contact { padding: 8rem 4rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .contact-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--purple-deep); line-height: 1.2; margin-bottom: 1.5rem; }
-    .contact-text h2 em { font-style: italic; color: var(--purple-light); }
-    .contact-text p { font-size: 1rem; line-height: 1.8; color: #555; }
-    .contact-links { display: flex; flex-direction: column; gap: 1.5rem; }
-    .contact-link { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 2rem; border: 1px solid rgba(124,77,190,0.2); text-decoration: none; color: var(--purple-mid); transition: all 0.3s; }
-    .contact-link:hover { background: var(--purple-mid); color: var(--white); border-color: var(--purple-mid); }
-    .contact-link-icon { font-size: 1.25rem; }
-    .contact-link-text { font-size: 0.9rem; letter-spacing: 0.05em; }
-    .contact-link-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
-
-    footer { background: var(--purple-deep); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
-    footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.5); }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-label { animation: fadeUp 0.8s ease forwards; }
-    .hero-title { animation: fadeUp 0.8s 0.15s ease forwards; opacity: 0; animation-fill-mode: forwards; }
-    .hero-roles { animation: fadeUp 0.8s 0.25s ease forwards; opacity: 0; animation-fill-mode: forwards; }
-    .hero-desc { animation: fadeUp 0.8s 0.35s ease forwards; opacity: 0; animation-fill-mode: forwards; }
-    .hero-cta { animation: fadeUp 0.8s 0.5s ease forwards; opacity: 0; animation-fill-mode: forwards; }
-    .hero-image { animation: fadeUp 0.8s 0.2s ease forwards; opacity: 0; animation-fill-mode: forwards; }
-
-    @media (max-width: 900px) {
-      nav { padding: 1.25rem 2rem; }
-      .hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; text-align: center; gap: 3rem; }
-      .hero-label, .hero-roles { justify-content: center; }
-      .hero-image-frame { width: 260px; height: 320px; margin: 0 auto; }
-      .about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
-      .work { padding: 4rem 2rem; }
-      .work-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      .case-study-card { grid-template-columns: 1fr; }
-      .card-visual { min-height: 220px; }
-      .contact { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
-      .skills-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Martina Turjak — UX Researcher & Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--purple-deep: #1a0533;
+--purple-mid: #3d1a6e;
+--purple-light: #7c4dbe;
+--purple-soft: #b39ddb;
+--cream: #f5f0eb;
+--white: #ffffff;
+--text-dark: #1a1a2e;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; justify-content: space-between; align-items: center;
+padding: 1.5rem 4rem;
+background: rgba(26, 5, 51, 0.88);
+backdrop-filter: blur(12px);
+}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); letter-spacing: 0.05em; text-decoration: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.3s; }
+.nav-links a:hover { color: var(--white); }
+.hero {
+min-height: 100vh;
+background: linear-gradient(135deg, var(--purple-deep) 0%, var(--purple-mid) 50%, #5b2d8e 100%);
+display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+padding: 8rem 4rem 4rem; position: relative; overflow: hidden;
+}
+.hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(124,77,190,0.3) 0%, transparent 70%); pointer-events: none; }
+.hero-text { position: relative; z-index: 2; }
+.hero-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+.hero-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--purple-soft); }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 1.5rem; }
+.hero-title em { font-style: italic; color: var(--purple-soft); }
+.hero-roles { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.hero-role-tag { padding: 0.4rem 1rem; border: 1px solid rgba(179,157,219,0.4); color: var(--purple-soft); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.hero-desc { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.7); max-width: 440px; margin-bottom: 2.5rem; }
+.hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; border: 1px solid rgba(255,255,255,0.3); color: var(--white); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.3s; }
+.hero-cta:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+.hero-cta-arrow { transition: transform 0.3s; }
+.hero-cta:hover .hero-cta-arrow { transform: translateX(4px); }
+.hero-image { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; }
+.hero-image-frame { position: relative; width: 380px; height: 480px; }
+.hero-image-frame::before { content: ''; position: absolute; top: -16px; right: -16px; width: 100%; height: 100%; border: 1px solid rgba(179,157,219,0.35); pointer-events: none; z-index: 0; }
+.hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; position: relative; z-index: 1; }
+.hero-image-frame::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, rgba(26,5,51,0.6), transparent); z-index: 2; pointer-events: none; }
+.hero-name-overlay { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 3; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.85); letter-spacing: 0.05em; }
+.about { padding: 8rem 4rem; display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; max-width: 1200px; margin: 0 auto; }
+.section-label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); padding-top: 0.5rem; }
+.about-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.3; color: var(--purple-deep); margin-bottom: 2rem; }
+.about-content p { font-size: 1rem; line-height: 1.9; color: #444; margin-bottom: 1.5rem; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+.skill-item { padding: 1.25rem 1.5rem; border: 1px solid rgba(124,77,190,0.2); font-size: 0.85rem; color: var(--purple-mid); letter-spacing: 0.05em; transition: all 0.3s; }
+.skill-item:hover { background: var(--purple-mid); color: var(--white); border-color: var(--purple-mid); }
+.work { background: var(--purple-deep); padding: 8rem 4rem; }
+.work-header { max-width: 1200px; margin: 0 auto 5rem; display: flex; justify-content: space-between; align-items: flex-end; }
+.work-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); }
+.work-title em { font-style: italic; color: var(--purple-soft); }
+.work-count { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); }
+.case-studies { max-width: 1200px; margin: 0 auto; display: grid; gap: 2rem; }
+.case-study-card { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; transition: all 0.4s; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.08); min-height: 360px; }
+.case-study-card:hover { border-color: rgba(179,157,219,0.3); transform: translateY(-4px); }
+.card-visual { position: relative; overflow: hidden; min-height: 300px; }
+.card-bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.case-study-card:hover .card-bg-photo { transform: scale(1.05); }
+.card-bg-overlay { position: absolute; inset: 0; z-index: 1; }
+.card-visual-label { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.2); line-height: 1; user-select: none; }
+.card-year-badge { position: absolute; top: 1.5rem; right: 1.5rem; z-index: 2; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); padding: 0.3rem 0.75rem; backdrop-filter: blur(4px); }
+.card-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; background: rgba(255,255,255,0.04); }
+.card-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-soft); margin-bottom: 1.25rem; }
+.card-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+.card-title em { font-style: italic; }
+.card-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 2rem; }
+.card-meta { display: flex; gap: 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+.card-link { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple-soft); display: flex; align-items: center; gap: 0.5rem; transition: gap 0.3s; }
+.case-study-card:hover .card-link { gap: 1rem; }
+.contact { padding: 8rem 4rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.contact-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; color: var(--purple-deep); line-height: 1.2; margin-bottom: 1.5rem; }
+.contact-text h2 em { font-style: italic; color: var(--purple-light); }
+.contact-text p { font-size: 1rem; line-height: 1.8; color: #555; }
+.contact-links { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-link { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 2rem; border: 1px solid rgba(124,77,190,0.2); text-decoration: none; color: var(--purple-mid); transition: all 0.3s; }
+.contact-link:hover { background: var(--purple-mid); color: var(--white); border-color: var(--purple-mid); }
+.contact-link-icon { font-size: 1.25rem; }
+.contact-link-text { font-size: 0.9rem; letter-spacing: 0.05em; }
+.contact-link-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+footer { background: var(--purple-deep); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: 0.8rem; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.5); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.hero-label { animation: fadeUp 0.8s ease forwards; }
+.hero-title { animation: fadeUp 0.8s 0.15s ease forwards; opacity: 0; animation-fill-mode: forwards; }
+.hero-roles { animation: fadeUp 0.8s 0.25s ease forwards; opacity: 0; animation-fill-mode: forwards; }
+.hero-desc { animation: fadeUp 0.8s 0.35s ease forwards; opacity: 0; animation-fill-mode: forwards; }
+.hero-cta { animation: fadeUp 0.8s 0.5s ease forwards; opacity: 0; animation-fill-mode: forwards; }
+.hero-image { animation: fadeUp 0.8s 0.2s ease forwards; opacity: 0; animation-fill-mode: forwards; }
+@media (max-width: 900px) {
+nav { padding: 1.25rem 2rem; }
+.hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; text-align: center; gap: 3rem; }
+.hero-label, .hero-roles { justify-content: center; }
+.hero-image-frame { width: 260px; height: 320px; margin: 0 auto; }
+.about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
+.work { padding: 4rem 2rem; }
+.work-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+.case-study-card { grid-template-columns: 1fr; }
+.card-visual { min-height: 220px; }
+.contact { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
+footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+.skills-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
-
 <nav>
-  <a href="#" class="nav-logo">Martina Turjak</a>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<a href="#" class="nav-logo">Martina Turjak</a>
+<ul class="nav-links">
+<li><a href="#work">Work</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
 <section class="hero">
-  <div class="hero-text">
-    <p class="hero-label">Dublin, Ireland</p>
-    <h1 class="hero-title">Turning people<br/>into <em>insight,</em><br/>insight into<br/><em>decisions.</em></h1>
-    <div class="hero-roles">
-      <span class="hero-role-tag">UX Researcher</span>
-      <span class="hero-role-tag">UX Designer</span>
-    </div>
-    <p class="hero-desc">I research how real people think, feel and behave — and translate those findings into clear, actionable recommendations that help teams build better products.</p>
-    <a href="#work" class="hero-cta">View my work <span class="hero-cta-arrow">→</span></a>
-  </div>
-  <div class="hero-image">
-    <div class="hero-image-frame">
-      <img src="martina-photo.jpg" alt="Martina Turjak" class="hero-photo" />
-      <span class="hero-name-overlay">Martina Turjak</span>
-    </div>
-  </div>
+<div class="hero-text">
+<p class="hero-label">Dublin, Ireland</p>
+<h1 class="hero-title">Turning people<br/>into <em>insight,</em><br/>insight into<br/><em>decisions.</em></h1>
+<div class="hero-roles">
+<span class="hero-role-tag">UX Researcher</span>
+<span class="hero-role-tag">UX Designer</span>
+</div>
+<p class="hero-desc">I research how real people think, feel and behave — and translate those findings into clear, actionable recommendations that help teams build better products.</p>
+<a href="#work" class="hero-cta">View my work <span class="hero-cta-arrow">→</span></a>
+</div>
+<div class="hero-image">
+<div class="hero-image-frame">
+<img src="martina-photo.jpg" alt="Martina Turjak" class="hero-photo" />
+<span class="hero-name-overlay">Martina Turjak</span>
+</div>
+</div>
 </section>
 
 <section class="about" id="about">
-  <p class="section-label">About me</p>
-  <div class="about-content">
-    <h2>People-centred research, grounded in real experience.</h2>
-    <p>Before I became a UX Researcher and Designer, I spent 13 years working directly with people — in childcare, hospitality and customer service. That background gives me something most researchers don't have: a genuine instinct for human behaviour built through real-world practice, not just academic frameworks.</p>
-    <p>I completed my postgraduate degree in UX Design at IADT Dublin and hold a Google UX Design Certificate. I work with Figma, Miro, Maze and AI tools to plan, conduct and communicate research that is clear, honest and actually useful.</p>
-    <div class="skills-grid">
-      <div class="skill-item">User Interviews</div>
-      <div class="skill-item">Usability Testing</div>
-      <div class="skill-item">Competitor Analysis</div>
-      <div class="skill-item">Survey Design</div>
-      <div class="skill-item">Persona Development</div>
-      <div class="skill-item">Journey Mapping</div>
-      <div class="skill-item">Figma · Miro · Maze</div>
-      <div class="skill-item">Research Reports</div>
-    </div>
-  </div>
+<p class="section-label">About me</p>
+<div class="about-content">
+<h2>People-centred research, grounded in real experience.</h2>
+<p>Before I became a UX Researcher and Designer, I spent 13 years working directly with people — in childcare, hospitality and customer service. That background gives me something most researchers don't have: a genuine instinct for human behaviour built through real-world practice, not just academic frameworks.</p>
+<p>I completed my postgraduate degree in UX Design at IADT Dublin and hold a Google UX Design Certificate. I work with Figma, Miro, Maze and AI tools to plan, conduct and communicate research that is clear, honest and actually useful.</p>
+<div class="skills-grid">
+<div class="skill-item">User Interviews</div>
+<div class="skill-item">Usability Testing</div>
+<div class="skill-item">Competitor Analysis</div>
+<div class="skill-item">Survey Design</div>
+<div class="skill-item">Persona Development</div>
+<div class="skill-item">Journey Mapping</div>
+<div class="skill-item">Figma · Miro · Maze</div>
+<div class="skill-item">Research Reports</div>
+</div>
+</div>
 </section>
 
 <section class="work" id="work">
-  <div class="work-header">
-    <h2 class="work-title">Selected <em>work</em></h2>
-    <span class="work-count">02 Case Studies</span>
-  </div>
-  <div class="case-studies">
+<div class="work-header">
+<h2 class="work-title">Selected <em>work</em></h2>
+<span class="work-count">02 Case Studies</span>
+</div>
+<div class="case-studies">
 
-    <!-- UX Tree -->
-    <a href="/portfolio/ux-tree-case-study.html" class="case-study-card">
-      <div class="card-visual">
-        <img src="ux-tree-cover.jpg" alt="UX Tree Case Study" class="card-bg-photo" />
-        
-        <div style="display:none">
-            <rect x="10" y="10" width="100" height="72" rx="8" stroke="white" stroke-width="2"/>
-            <line x1="10" y1="30" x2="110" y2="30" stroke="white" stroke-width="2"/>
-            <circle cx="22" cy="20" r="3" fill="white"/><circle cx="34" cy="20" r="3" fill="white"/><circle cx="46" cy="20" r="3" fill="white"/>
-            <rect x="22" y="44" width="38" height="6" rx="3" fill="white"/>
-            <rect x="22" y="56" width="58" height="4" rx="2" fill="white" opacity="0.5"/>
-            <rect x="22" y="66" width="44" height="4" rx="2" fill="white" opacity="0.4"/>
-            <circle cx="86" cy="56" r="14" stroke="white" stroke-width="2"/>
-            <line x1="96" y1="66" x2="108" y2="78" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="60" y1="92" x2="60" y2="108" stroke="white" stroke-width="2"/>
-            <line x1="42" y1="108" x2="78" y2="108" stroke="white" stroke-width="2"/>
-          </div>
-        <span class="card-visual-label">UX</span>
-        <span class="card-year-badge">2023</span>
-      </div>
-      <div class="card-content">
-        <p class="card-tag">UX Research · Mentorship Platform</p>
-        <h3 class="card-title">UX Tree <em>Mentorship</em></h3>
-        <p class="card-desc">Redesigning a mentorship platform's navigation and mentor discovery experience — so early-career UX designers can find guidance with confidence.</p>
-        <div class="card-meta"><span>UX Researcher</span><span>2023</span><span>Figma · Miro · Maze</span></div>
-        <span class="card-link">View case study →</span>
-      </div>
-    </a>
+  <!-- Animal Farmacy — FIRST (most recent) -->
+  <a href="/animal-farmacy/index.html" class="case-study-card">
+    <div class="card-visual">
+      <img src="animal-farmacy-cover.jpg" alt="Farmer holding phone showing Animal Farmacy app" class="card-bg-photo" />
+      <span class="card-visual-label">AF</span>
+      <span class="card-year-badge">2024</span>
+    </div>
+    <div class="card-content">
+      <p class="card-tag">UX Research · E-Commerce</p>
+      <h3 class="card-title">Animal <em>Farmacy</em></h3>
+      <p class="card-desc">Redesigning the e-commerce homepage for Animal Farmacy — improving navigation, search and accessibility for users of all ages, especially older farmers.</p>
+      <div class="card-meta"><span>UX Researcher</span><span>2024</span><span>Figma · Miro · WCAG</span></div>
+      <span class="card-link">View case study →</span>
+    </div>
+  </a>
 
-    <!-- Animal Farmacy -->
-    <a href="/animal-farmacy/index.html" class="case-study-card">
-      <div class="card-visual">
-        <!-- PHOTO OPTION: Upload animal-farmacy-cover.jpg to GitHub, then uncomment: -->
-        <!-- <img src="animal-farmacy-cover.jpg" alt="" class="card-bg-photo" /> -->
-        <div class="card-bg-overlay" style="background:linear-gradient(135deg,#1a0533 0%,#4a2080 60%,#6b35a8 100%);"></div>
-        <svg class="card-pattern" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="d2" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse"><line x1="0" y1="22" x2="22" y2="0" stroke="white" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#d2)"/></svg>
-        <div class="card-icon">
-          <svg width="110" height="110" viewBox="0 0 120 120" fill="none" opacity="0.25">
-            <rect x="15" y="30" width="90" height="72" rx="6" stroke="white" stroke-width="2"/>
-            <path d="M38 30 C38 16 82 16 82 30" stroke="white" stroke-width="2" fill="none"/>
-            <line x1="15" y1="52" x2="105" y2="52" stroke="white" stroke-width="1.5" opacity="0.5"/>
-            <rect x="28" y="62" width="64" height="7" rx="3.5" fill="white" opacity="0.4"/>
-            <rect x="28" y="76" width="44" height="5" rx="2.5" fill="white" opacity="0.3"/>
-            <circle cx="44" cy="88" r="7" stroke="white" stroke-width="2"/>
-            <circle cx="76" cy="88" r="7" stroke="white" stroke-width="2"/>
-          </svg>
-        </div>
-        <span class="card-visual-label">AF</span>
-        <span class="card-year-badge">2024</span>
-      </div>
-      <div class="card-content">
-        <p class="card-tag">UX Research · E-Commerce</p>
-        <h3 class="card-title">Animal <em>Farmacy</em></h3>
-        <p class="card-desc">Redesigning the e-commerce homepage for Animal Farmacy — improving navigation, search and accessibility for users of all ages, especially older farmers.</p>
-        <div class="card-meta"><span>UX Researcher</span><span>2024</span><span>Figma · Miro · WCAG</span></div>
-        <span class="card-link">View case study →</span>
-      </div>
-    </a>
+  <!-- UX Tree — SECOND -->
+  <a href="/portfolio/ux-tree-case-study.html" class="case-study-card">
+    <div class="card-visual">
+      <img src="ux-tree-cover.jpg" alt="UX Tree Case Study" class="card-bg-photo" />
+      <span class="card-visual-label">UX</span>
+      <span class="card-year-badge">2023</span>
+    </div>
+    <div class="card-content">
+      <p class="card-tag">UX Research · Mentorship Platform</p>
+      <h3 class="card-title">UX Tree <em>Mentorship</em></h3>
+      <p class="card-desc">Redesigning a mentorship platform's navigation and mentor discovery experience — so early-career UX designers can find guidance with confidence.</p>
+      <div class="card-meta"><span>UX Researcher</span><span>2023</span><span>Figma · Miro · Maze</span></div>
+      <span class="card-link">View case study →</span>
+    </div>
+  </a>
 
-  </div>
+</div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="contact-text">
-    <h2>Let's work <em>together.</em></h2>
-    <p>I'm currently available for freelance research projects. Whether you need a competitor analysis, usability testing or user interviews — I'd love to hear what you're working on.</p>
-  </div>
-  <div class="contact-links">
-    <a href="https://linkedin.com/in/martina-turjak" target="_blank" class="contact-link">
-      <span class="contact-link-icon">💼</span>
-      <div><p class="contact-link-label">Connect on</p><p class="contact-link-text">LinkedIn</p></div>
-    </a>
-    <a href="https://www.fiverr.com/users/memarty" target="_blank" class="contact-link">
-      <span class="contact-link-icon">🎯</span>
-      <div><p class="contact-link-label">Hire me on</p><p class="contact-link-text">Fiverr</p></div>
-    </a>
-  </div>
+<div class="contact-text">
+<h2>Let's work <em>together.</em></h2>
+<p>I'm currently available for freelance research projects. Whether you need a competitor analysis, usability testing or user interviews — I'd love to hear what you're working on.</p>
+</div>
+<div class="contact-links">
+<a href="https://linkedin.com/in/martina-turjak" target="_blank" class="contact-link">
+<span class="contact-link-icon">💼</span>
+<div><p class="contact-link-label">Connect on</p><p class="contact-link-text">LinkedIn</p></div>
+</a>
+<a href="https://www.fiverr.com/users/memarty" target="_blank" class="contact-link">
+<span class="contact-link-icon">🎯</span>
+<div><p class="contact-link-label">Hire me on</p><p class="contact-link-text">Fiverr</p></div>
+</a>
+</div>
 </section>
 
 <footer>
-  <span class="footer-logo">Martina Turjak</span>
-  <p>© 2025 · UX Researcher & Designer · Dublin, Ireland</p>
+<span class="footer-logo">Martina Turjak</span>
+<p>© 2025 · UX Researcher & Designer · Dublin, Ireland</p>
 </footer>
-
 </body>
 </html>
