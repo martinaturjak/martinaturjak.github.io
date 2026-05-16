@@ -3,1266 +3,457 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Animal Farmacy — Homepage Clarity Improvement</title>
+  <title>Animal Farmacy — Homepage Redesign</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-
   <style>
     :root {
-      --green-dark:   #1a3a2a;
-      --green-mid:    #2e6b47;
-      --green-bright: #3d8b5e;
-      --green-light:  #7ab896;
-      --green-pale:   #d6ede2;
-      --cream:        #f5f0e8;
-      --warm-white:   #fdfbf7;
-      --charcoal:     #1e1e1e;
-      --mid-grey:     #6b6b6b;
-      --light-grey:   #e8e4dc;
-      --accent:       #c8a84b;
-      --accent-light: #f0e4bc;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
-      color: var(--charcoal);
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    /* ─── NAVIGATION ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(26, 58, 42, 0.96);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 3rem;
-      height: 64px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      color: var(--cream);
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: rgba(245, 240, 232, 0.75);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--green-pale); }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh;
-      background: var(--green-dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(61,139,94,0.25) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10rem 5rem 6rem 6rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(61,139,94,0.2);
-      border: 1px solid rgba(122,184,150,0.3);
-      color: var(--green-light);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 100px;
-      margin-bottom: 2rem;
-      width: fit-content;
-    }
-
-    .hero-tag::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green-light);
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 900;
-      color: var(--cream);
-      line-height: 1.08;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--green-light);
-    }
-
-    .hero-desc {
-      color: rgba(245, 240, 232, 0.65);
-      font-size: 1.05rem;
-      font-weight: 300;
-      max-width: 480px;
-      margin-bottom: 3rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .meta-row {
-      display: flex;
-      align-items: baseline;
-      gap: 0.8rem;
-      font-size: 0.85rem;
-    }
-
-    .meta-label {
-      color: var(--green-light);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.72rem;
-      min-width: 80px;
-    }
-
-    .meta-value {
-      color: rgba(245, 240, 232, 0.8);
-    }
-
-    .meta-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .meta-tag {
-      background: rgba(61,139,94,0.15);
-      border: 1px solid rgba(122,184,150,0.2);
-      color: var(--green-light);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-    }
-
-    .hero-image-panel {
-      position: relative;
-      overflow: hidden;
-      min-height: 600px;
-    }
-
-    .hero-image-panel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      opacity: 0.9;
-      display: block;
-      transition: transform 8s ease;
-    }
-
-    .hero-image-panel:hover img {
-      transform: scale(1.03);
-    }
-
-    .hero-image-panel::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, var(--green-dark) 0%, rgba(26,58,42,0.2) 35%, transparent 60%);
-      z-index: 1;
-    }
-
-    .hero-image-panel::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 40%;
-      background: linear-gradient(0deg, var(--green-dark) 0%, transparent 100%);
-      z-index: 1;
-    }
-
-    /* ─── LAYOUT ─── */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .container-wide {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    section {
-      padding: 6rem 0;
-    }
-
-    section + section {
-      border-top: 1px solid var(--light-grey);
-    }
-
-    /* ─── SECTION HEADERS ─── */
-    .section-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-      color: var(--green-mid);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .section-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 2px;
-      background: var(--green-bright);
-    }
-
-    h2.section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 700;
-      color: var(--green-dark);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
-    }
-
-    h3.subsection-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin: 2.5rem 0 0.75rem;
-    }
-
-    h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--green-mid);
-      text-transform: uppercase;
-      margin: 1.5rem 0 0.5rem;
-    }
-
-    p { margin-bottom: 1.1rem; color: #3a3a3a; }
-
-    ul, ol {
-      padding-left: 1.4rem;
-      margin-bottom: 1.1rem;
-    }
-
-    li { color: #3a3a3a; margin-bottom: 0.35rem; }
-
-    a { color: var(--green-mid); }
-
-    /* ─── CALLOUT / HIGHLIGHT BOX ─── */
-    .callout {
-      background: var(--green-pale);
-      border-left: 4px solid var(--green-bright);
-      border-radius: 0 8px 8px 0;
-      padding: 1.5rem 2rem;
-      margin: 2rem 0;
-    }
-
-    .callout-icon {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-      display: block;
-    }
-
-    .callout p {
-      margin: 0;
-      font-weight: 500;
-      color: var(--green-dark);
-      font-size: 1.05rem;
-    }
-
-    /* ─── OVERVIEW GRID ─── */
-    .overview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-      margin-top: 2rem;
-    }
-
-    /* ─── STATS ROW ─── */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--light-grey);
-      border: 1px solid var(--light-grey);
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 3rem 0;
-    }
-
-    .stat-cell {
-      background: var(--warm-white);
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--green-mid);
-      display: block;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--mid-grey);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* ─── IMAGES ─── */
-    .img-full {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-      margin: 2rem 0;
-      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-    }
-
-    .img-caption {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--mid-grey);
-      margin-top: -1rem;
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
-
-    .img-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .img-grid-2 img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-    }
-
-    .img-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .img-grid-3 img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-    }
-
-    .img-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .img-grid-4 img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-    }
-
-    /* ─── PHASE BANNER ─── */
-    .phase-banner {
-      background: var(--green-dark);
-      color: var(--cream);
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 2rem 0 1.5rem;
-    }
-
-    .phase-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--green-light);
-      line-height: 1;
-    }
-
-    .phase-name {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green-light);
-    }
-
-    .phase-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--cream);
-    }
-
-    /* ─── FINDING CARDS ─── */
-    .finding-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .finding-card {
-      background: var(--warm-white);
-      border: 1px solid var(--light-grey);
-      border-radius: 10px;
-      padding: 1.5rem;
-      border-top: 3px solid var(--green-bright);
-    }
-
-    .finding-card h4 {
-      margin-top: 0;
-      color: var(--green-dark);
-    }
-
-    .finding-card p, .finding-card li {
-      font-size: 0.9rem;
-    }
-
-    /* ─── PERSONA CARD ─── */
-    .persona-card {
-      background: var(--green-pale);
-      border-radius: 16px;
-      padding: 2.5rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2rem;
-      align-items: start;
-      margin: 2rem 0;
-    }
-
-    .persona-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--green-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      flex-shrink: 0;
-    }
-
-    .persona-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin-bottom: 0.25rem;
-    }
-
-    .persona-subtitle {
-      color: var(--green-mid);
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    /* ─── QUOTE ─── */
-    .quote-block {
-      border-left: 3px solid var(--accent);
-      padding: 0.5rem 1.5rem;
-      margin: 1.5rem 0;
-      background: var(--accent-light);
-      border-radius: 0 8px 8px 0;
-    }
-
-    .quote-block p {
-      font-style: italic;
-      color: var(--charcoal);
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    /* ─── PROCESS STEPS ─── */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin: 2.5rem 0;
-      position: relative;
-    }
-
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: 10%;
-      right: 10%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--green-bright), var(--green-light));
-    }
-
-    .process-step {
-      text-align: center;
-      padding: 0 1rem;
-      position: relative;
-    }
-
-    .step-dot {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--green-mid);
-      color: white;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 0 4px var(--warm-white), 0 0 0 6px var(--green-light);
-    }
-
-    .step-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--green-dark);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .step-sub {
-      font-size: 0.75rem;
-      color: var(--mid-grey);
-      margin-top: 0.3rem;
-    }
-
-    /* ─── FEATURES LIST ─── */
-    .features-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .features-list li {
-      display: flex;
-      gap: 0.75rem;
-      align-items: flex-start;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--light-grey);
-    }
-
-    .features-list li::before {
-      content: '✓';
-      color: var(--green-bright);
-      font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    /* ─── NEXT STEPS GRID ─── */
-    .next-steps-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .next-step-card {
-      background: var(--warm-white);
-      border: 1px solid var(--light-grey);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
-    .next-step-card .card-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .next-step-card h4 {
-      color: var(--green-dark);
-      margin: 0 0 0.5rem;
-      text-transform: none;
-      letter-spacing: 0;
-      font-size: 0.95rem;
-    }
-
-    .next-step-card p, .next-step-card li {
-      font-size: 0.85rem;
-      color: var(--mid-grey);
-    }
-
-    /* ─── LEARNINGS ─── */
-    .learnings-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .learning-item {
-      background: var(--green-pale);
-      border-radius: 10px;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--green-dark);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    /* ─── CONCLUSION ─── */
-    .conclusion-section {
-      background: var(--green-dark);
-    }
-
-    .conclusion-section .section-eyebrow { color: var(--green-light); }
-    .conclusion-section .section-eyebrow::before { background: var(--green-light); }
-    .conclusion-section h2.section-title { color: var(--cream); }
-    .conclusion-section p { color: rgba(245,240,232,0.75); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--charcoal);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 2.5rem;
-      font-size: 0.82rem;
-    }
-
-    footer a { color: var(--green-light); }
-
-    /* ─── FIGMA LINK ─── */
-    .figma-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--green-mid);
-      color: white;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      margin-top: 1rem;
-      transition: background 0.2s;
-    }
-
-    .figma-link:hover { background: var(--green-dark); color: white; }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-content { padding: 8rem 2rem 4rem; }
-      .hero-image-panel { height: 300px; }
-      .hero-image-panel::after { background: linear-gradient(180deg, var(--green-dark) 0%, transparent 40%); }
-      .overview-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr 1fr; }
-      .process-steps::before { display: none; }
-      .finding-cards { grid-template-columns: 1fr; }
-      .img-grid-3 { grid-template-columns: 1fr 1fr; }
-      .next-steps-grid { grid-template-columns: 1fr; }
-      .learnings-grid { grid-template-columns: 1fr 1fr; }
-      section { padding: 4rem 0; }
-    }
-
-    @media (max-width: 600px) {
-      .stats-row { grid-template-columns: 1fr; }
-      .img-grid-2 { grid-template-columns: 1fr; }
-      .img-grid-3 { grid-template-columns: 1fr; }
-      .img-grid-4 { grid-template-columns: 1fr; }
-      .learnings-grid { grid-template-columns: 1fr; }
-      .persona-card { grid-template-columns: 1fr; }
-    }
+      --green-dark:#1a3a2a;--green-mid:#2e6b47;--green-bright:#3d8b5e;
+      --green-light:#7ab896;--green-pale:#d6ede2;--cream:#f5f0e8;
+      --warm-white:#fdfbf7;--charcoal:#1e1e1e;--mid-grey:#6b6b6b;
+      --light-grey:#e8e4dc;--accent:#c8a84b;--accent-light:#f0e4bc;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--charcoal);font-size:17px;line-height:1.7;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,58,42,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:64px;border-bottom:1px solid rgba(255,255,255,0.1);}
+    .nav-logo{font-family:'Playfair Display',serif;color:var(--cream);font-size:1.1rem;font-weight:700;letter-spacing:0.02em;text-decoration:none;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{color:rgba(245,240,232,0.7);text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--green-pale);}
+    .hero{min-height:100vh;background:var(--green-dark);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+    .hero-content{display:flex;flex-direction:column;justify-content:center;padding:10rem 5rem 6rem 6rem;position:relative;z-index:2;}
+    .hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(61,139,94,0.2);border:1px solid rgba(122,184,150,0.3);color:var(--green-light);font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:2rem;width:fit-content;}
+    .hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green-light);}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4rem);font-weight:900;color:var(--cream);line-height:1.08;margin-bottom:1.5rem;letter-spacing:-0.02em;}
+    .hero h1 em{font-style:italic;color:var(--green-light);}
+    .hero-problems{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:2.5rem;}
+    .hero-problem{display:flex;align-items:center;gap:0.75rem;color:rgba(245,240,232,0.7);font-size:0.9rem;}
+    .hero-problem::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+    .hero-meta{display:flex;flex-direction:column;gap:0.5rem;}
+    .meta-row{display:flex;align-items:baseline;gap:0.8rem;font-size:0.85rem;}
+    .meta-label{color:var(--green-light);font-weight:500;letter-spacing:0.06em;text-transform:uppercase;font-size:0.72rem;min-width:80px;}
+    .meta-value{color:rgba(245,240,232,0.8);}
+    .hero-image-panel{position:relative;overflow:hidden;}
+    .hero-image-panel img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.85;display:block;transition:transform 8s ease;}
+    .hero-image-panel:hover img{transform:scale(1.03);}
+    .hero-image-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--green-dark) 0%,rgba(26,58,42,0.15) 35%,transparent 60%);z-index:1;}
+    .hero-image-panel::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(0deg,var(--green-dark) 0%,transparent 100%);z-index:1;}
+    .container{max-width:900px;margin:0 auto;padding:0 2rem;}
+    section{padding:5rem 0;}
+    section+section{border-top:1px solid var(--light-grey);}
+    .section-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;color:var(--green-mid);font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;}
+    .section-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--green-bright);}
+    h2.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--green-dark);line-height:1.15;margin-bottom:1.5rem;letter-spacing:-0.01em;}
+    h3.sub-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--green-dark);margin:2.5rem 0 0.75rem;}
+    h4{font-size:0.85rem;font-weight:600;letter-spacing:0.04em;color:var(--green-mid);text-transform:uppercase;margin:1.5rem 0 0.4rem;}
+    p{margin-bottom:1rem;color:#3a3a3a;}
+    ul,ol{padding-left:1.4rem;margin-bottom:1rem;}
+    li{color:#3a3a3a;margin-bottom:0.3rem;}
+    a{color:var(--green-mid);}
+    .callout{background:var(--green-pale);border-left:4px solid var(--green-bright);border-radius:0 8px 8px 0;padding:1.5rem 2rem;margin:1.5rem 0;}
+    .callout-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green-mid);margin-bottom:0.4rem;display:block;}
+    .callout p{margin:0;color:var(--green-dark);font-weight:500;}
+    .phase-banner{background:var(--green-dark);color:var(--cream);padding:1rem 2rem;border-radius:8px;display:flex;align-items:center;gap:1.2rem;margin:2rem 0 1.5rem;}
+    .phase-number{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--green-light);line-height:1;flex-shrink:0;}
+    .phase-name{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-light);}
+    .phase-heading{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--cream);}
+    .img-full{width:100%;border-radius:10px;display:block;margin:1.5rem 0;box-shadow:0 4px 30px rgba(0,0,0,0.1);}
+    .img-caption{text-align:center;font-size:0.8rem;color:var(--mid-grey);margin-top:-0.75rem;margin-bottom:1.5rem;font-style:italic;}
+    .img-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;}
+    .img-grid-2 img{width:100%;border-radius:8px;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+    .img-grid-4{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;}
+    .img-grid-4 img{width:100%;border-radius:8px;box-shadow:0 2px 20px rgba(0,0,0,0.08);}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:2rem 0;position:relative;}
+    .process-steps::before{content:'';position:absolute;top:27px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--green-bright),var(--green-light));}
+    .process-step{text-align:center;padding:0 0.5rem;position:relative;}
+    .step-dot{width:54px;height:54px;border-radius:50%;background:var(--green-mid);color:white;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;position:relative;z-index:1;box-shadow:0 0 0 4px var(--warm-white),0 0 0 6px var(--green-light);}
+    .step-label{font-size:0.78rem;font-weight:600;color:var(--green-dark);letter-spacing:0.04em;text-transform:uppercase;}
+    .step-sub{font-size:0.72rem;color:var(--mid-grey);margin-top:0.25rem;}
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--light-grey);border:1px solid var(--light-grey);border-radius:12px;overflow:hidden;margin:2rem 0;}
+    .stat-cell{background:var(--warm-white);padding:1.75rem 1.25rem;text-align:center;}
+    .stat-number{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--green-mid);display:block;line-height:1;margin-bottom:0.3rem;}
+    .stat-label{font-size:0.78rem;color:var(--mid-grey);font-weight:500;letter-spacing:0.04em;text-transform:uppercase;}
+    .card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0;}
+    .card{background:var(--warm-white);border:1px solid var(--light-grey);border-radius:10px;padding:1.5rem;border-top:3px solid var(--green-bright);}
+    .card h4{margin-top:0;color:var(--green-dark);}
+    .card p,.card li{font-size:0.88rem;}
+    .quote-block{border-left:3px solid var(--accent);padding:0.5rem 1.5rem;margin:1.2rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;}
+    .quote-block p{font-style:italic;color:var(--charcoal);margin:0;font-size:0.92rem;}
+    .next-steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.5rem;}
+    .next-step-card{background:var(--warm-white);border:1px solid var(--light-grey);border-radius:12px;padding:1.5rem;}
+    .next-step-card .card-icon{font-size:1.4rem;margin-bottom:0.6rem;display:block;}
+    .next-step-card h4{color:var(--green-dark);margin:0 0 0.5rem;text-transform:none;letter-spacing:0;font-size:0.95rem;}
+    .next-step-card p,.next-step-card li{font-size:0.85rem;color:var(--mid-grey);}
+    .conclusion-dark{background:var(--green-dark);}
+    .conclusion-dark .section-eyebrow{color:var(--green-light);}
+    .conclusion-dark .section-eyebrow::before{background:var(--green-light);}
+    .conclusion-dark h2.section-title{color:var(--cream);}
+    .conclusion-dark p{color:rgba(245,240,232,0.75);}
+    .learnings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+    .learning-item{background:rgba(61,139,94,0.15);border-radius:10px;padding:1.25rem;font-size:0.88rem;color:var(--green-pale);line-height:1.55;}
+    .figma-link{display:inline-flex;align-items:center;gap:0.6rem;background:var(--green-mid);color:white;text-decoration:none;padding:0.75rem 1.5rem;border-radius:8px;font-size:0.9rem;font-weight:500;margin-top:1rem;transition:background 0.2s;}
+    .figma-link:hover{background:var(--green-dark);color:white;}
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.45);text-align:center;padding:2.5rem;font-size:0.8rem;}
+    footer a{color:var(--green-light);}
+    @media(max-width:900px){
+      nav{padding:0 1.5rem;}.nav-links{display:none;}
+      .hero{grid-template-columns:1fr;}.hero-content{padding:8rem 2rem 4rem;}
+      .hero-image-panel{height:300px;}
+      .process-steps{grid-template-columns:1fr 1fr;}.process-steps::before{display:none;}
+      .card-grid-2,.img-grid-2,.img-grid-4,.next-steps-grid{grid-template-columns:1fr;}
+      .learnings-grid{grid-template-columns:1fr 1fr;}.stats-row{grid-template-columns:1fr;}
+    }
+    @media(max-width:600px){.learnings-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Martina Turjak</a>
-    <ul class="nav-links">
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#define">Define</a></li>
-      <li><a href="#develop">Develop</a></li>
-      <li><a href="#testing">Testing</a></li>
-      <li><a href="#delivery">Delivery</a></li>
+<nav>
+  <a class="nav-logo" href="#">Martina Turjak</a>
+  <ul class="nav-links">
+    <li><a href="#project">Project</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#define">Define</a></li>
+    <li><a href="#prototype">Prototype</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border:none;padding:0;">
+  <div class="hero-content">
+    <span class="hero-tag">UX Case Study</span>
+    <h1>Animal Farmacy<br><em>Homepage</em><br>Redesign</h1>
+    <div class="hero-problems">
+      <div class="hero-problem">Hidden search &amp; navigation</div>
+      <div class="hero-problem">Confusing information architecture</div>
+      <div class="hero-problem">Poor accessibility for older users</div>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-row"><span class="meta-label">Role</span><span class="meta-value">UX Researcher &amp; UI/UX Designer</span></div>
+      <div class="meta-row"><span class="meta-label">Company</span><span class="meta-value">UX Tree Mentorship Program</span></div>
+      <div class="meta-row"><span class="meta-label">Timeframe</span><span class="meta-value">September – December 2024</span></div>
+      <div class="meta-row"><span class="meta-label">Tools</span><span class="meta-value">Figma · Miro · Maze · Google Docs · Dashtoon</span></div>
+    </div>
+  </div>
+  <div class="hero-image-panel">
+    <img src="../animal-farmacy-cover.jpg" alt="Farmer holding mobile phone showing Animal Farmacy site in a field" />
+  </div>
+</section>
+
+<!-- THE PROJECT -->
+<section id="project">
+  <div class="container">
+    <div class="section-eyebrow">The Project</div>
+    <h2 class="section-title">Why This Redesign?</h2>
+    <p>E-commerce websites often struggle to provide accessible navigation and intuitive search tools, especially for older users. The Animal Farmacy homepage suffered from a lack of search functionality, poorly structured product categories, and navigation options that were simply invisible to its core audience — farmers aged 57 and above.</p>
+    <p>This project focused on redesigning the homepage to prioritise accessibility, intuitive navigation, and user-centric search functionality.</p>
+    <img src="before-after-redesign-animal-farmacy.jpg" alt="Animal Farmacy redesigned homepage on laptop" class="img-full" />
+    <div class="stats-row">
+      <div class="stat-cell"><span class="stat-number">57+</span><span class="stat-label">Average age of Irish farmers</span></div>
+      <div class="stat-cell"><span class="stat-number">40%</span><span class="stat-label">Couldn't recognise the search icon</span></div>
+      <div class="stat-cell"><span class="stat-number">6/6</span><span class="stat-label">Users completed all Maze tasks</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT / DOUBLE DIAMOND -->
+<section id="context">
+  <div class="container">
+    <div class="section-eyebrow">Understanding the Context</div>
+    <h2 class="section-title">Design Process — Double Diamond</h2>
+    <p>I chose the Double Diamond framework because it provides a clear, structured approach to problem-solving — first exploring user challenges widely, then narrowing down on specific, actionable solutions. With an average user demographic of farmers aged 57+, the challenges included:</p>
+    <ul>
+      <li>Difficulty locating specific products due to unclear navigation</li>
+      <li>Ineffective use of search functionality, resulting in user frustration</li>
+      <li>Poor alignment with accessibility standards, limiting usability for older users</li>
     </ul>
-  </nav>
+    <div class="process-steps">
+      <div class="process-step"><div class="step-dot">1</div><div class="step-label">Discover</div><div class="step-sub">Explore broadly</div></div>
+      <div class="process-step"><div class="step-dot">2</div><div class="step-label">Define</div><div class="step-sub">Frame the problem</div></div>
+      <div class="process-step"><div class="step-dot">3</div><div class="step-label">Develop</div><div class="step-sub">Ideate &amp; prototype</div></div>
+      <div class="process-step"><div class="step-dot">4</div><div class="step-label">Deliver</div><div class="step-sub">Test &amp; refine</div></div>
+    </div>
+    <img src="research-synthesis-animal-farmacy.jpg" alt="Double Diamond Design Process" class="img-full" />
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero" style="border: none; padding: 0;">
-    <div class="hero-content">
-      <span class="hero-tag">UX Case Study</span>
-      <h1>Animal Farmacy<br><em>Homepage Clarity</em><br>Improvement</h1>
-      <p class="hero-desc">Redesigning an e-commerce platform's search and navigation to serve older farmers who shop online.</p>
-      <div class="hero-meta">
-        <div class="meta-row">
-          <span class="meta-label">Timeframe</span>
-          <span class="meta-value">September – December 2024</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Role</span>
-          <span class="meta-value">UX Researcher &amp; UI/UX Designer</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Tools</span>
-          <span class="meta-value">Figma, Miro, Maze, Google Docs, Dashtoon</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Context</span>
-          <span class="meta-value">UX Tree Mentorship Program</span>
-        </div>
-        <div class="meta-row" style="margin-top: 0.5rem;">
-          <span class="meta-label">Tags</span>
-          <div class="meta-tags">
-            <span class="meta-tag">UX Research</span>
-            <span class="meta-tag">UI/UX</span>
-            <span class="meta-tag">User Testing</span>
-            <span class="meta-tag">Product Design</span>
-            <span class="meta-tag">Market Research</span>
-            <span class="meta-tag">Interviews</span>
-          </div>
-        </div>
+<!-- PRIMARY RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="phase-banner">
+      <div class="phase-number">01</div>
+      <div><div class="phase-name">Phase One</div><div class="phase-heading">Primary Research</div></div>
+    </div>
+    <div class="section-eyebrow">Research Methods</div>
+    <h2 class="section-title">How I Understood the Problem</h2>
+    <div class="card-grid-2">
+      <div class="card"><h4>Heuristic Evaluation</h4><p>Identified key usability issues: unclear navigation, mismatched visuals, cluttered layout, and lack of customer support.</p></div>
+      <div class="card"><h4>Competitor Analysis</h4><p>Analysed best practices from platforms in Ireland and globally: Valley Vet, Farmers Market, Next, Chupi.</p></div>
+      <div class="card"><h4>User Interviews</h4><p>Conducted with farmers and farming-related users aged 25–65+ to understand their online shopping behaviour.</p></div>
+      <div class="card"><h4>Usability Testing</h4><p>Focused on key tasks: finding specific products using search tools, and locating shipping information.</p></div>
+    </div>
+    <img src="heuristic-evaluation-animal-farmacy.jpg" alt="Heuristic evaluation of Animal Farmacy homepage" class="img-full" />
+    <img src="competitor-analysis-animal-farmacy.jpg" alt="Competitor analysis — Valley Vet, Farmers Market, Next, Chupi" class="img-full" />
+
+    <h3 class="sub-title">What the Research Revealed</h3>
+    <h4>Navigation Issues</h4>
+    <ul>
+      <li>Hidden menus and unclear category names confused users</li>
+      <li>Older users struggled to recognise the magnifying glass as a search icon</li>
+      <li>Breadcrumb navigation was missing — users were lost</li>
+    </ul>
+    <div class="quote-block"><p>"If someone doesn't see the menu, they can always use the search bar." — user</p></div>
+    <h4>Search Bar Challenges</h4>
+    <ul>
+      <li>The search bar was small, lacked contrast, and was not intuitive</li>
+      <li>40% of older users could not recognise the magnifying glass icon</li>
+      <li>Users relied on scrolling and trial-and-error instead of searching</li>
+    </ul>
+    <h4>Information Architecture Problems</h4>
+    <ul>
+      <li>Categories like "Farm Equipment" were too broad</li>
+      <li>Products not grouped logically — "Calf Jackets" was misplaced</li>
+      <li>Shipping and contact information were hidden and hard to find</li>
+    </ul>
+    <div class="quote-block"><p>"I would put calf jacket under the farm equipment." — user</p></div>
+    <h4>Accessibility</h4>
+    <ul>
+      <li>Users complained about colours, small text sizes, and buttons too small to tap</li>
+      <li>The hidden hamburger menu was unfamiliar to older users</li>
+      <li>No descriptive text to guide users towards correct actions</li>
+    </ul>
+    <img src="pain-points-animal-farmacy.jpg" alt="Key pain points identified from user research" class="img-full" />
+    <img src="affinity-map-animal-farmacy_2_.jpg" alt="Usability testing affinity diagram" class="img-full" />
+    <p class="img-caption">Usability testing — affinity diagram</p>
+  </div>
+</section>
+
+<!-- DEFINE -->
+<section id="define">
+  <div class="container">
+    <div class="phase-banner">
+      <div class="phase-number">02</div>
+      <div><div class="phase-name">Phase Two</div><div class="phase-heading">Empathy Map &amp; Personas</div></div>
+    </div>
+    <div class="section-eyebrow">Define</div>
+    <h2 class="section-title">Understanding Our Users</h2>
+
+    <h3 class="sub-title">Empathy Map</h3>
+    <p>After collecting data from heuristic evaluations, interviews, usability tests, and surveys, I built an empathy map to better understand user frustrations, goals, and behaviours. This helped highlight the main challenges users were facing.</p>
+    <img src="empathy-map-animal-farmacy.jpg" alt="Empathy map — Animal Farmacy user research" class="img-full" />
+    <div class="card-grid-2">
+      <div class="card"><h4>🧠 Think</h4><p>Confused about navigation, unsure where to start their search.</p></div>
+      <div class="card"><h4>💭 Feel</h4><p>Frustrated, overwhelmed, disoriented by poorly labelled menus.</p></div>
+      <div class="card"><h4>🗣 Say</h4><p>"Where do I even begin?" — "The search bar is too hard to find."</p></div>
+      <div class="card"><h4>🖱 Do</h4><p>Scroll endlessly and guess at categories instead of using the search bar.</p></div>
+    </div>
+
+    <h3 class="sub-title">Personas</h3>
+    <p>After creating three personas with their pain points, goals, frustrations, and journey maps, I focused on one: <strong>Jack</strong>. Jack represents older Irish farmers (average age 57) who would love to buy online but lack tech literacy. Fixing the problem for Jack also fixes it for everyone — accessibility features benefit all users.</p>
+    <img src="research-synthesis-animal-farmacy.jpg" alt="User personas — Jack and other user profiles" class="img-full" />
+
+    <h3 class="sub-title">How Might We?</h3>
+    <p>Since issues with product search and navigation from the homepage kept repeating across all personas, I was able to narrow them down into a single problem statement.</p>
+    <img src="hmw-search-findability-animal-farmacy.jpg" alt="How Might We — Search Findability" class="img-full" />
+
+    <div class="callout">
+      <span class="callout-label">💡 Problem Statement</span>
+      <p>How might we make the search and navigation tools more intuitive and visible, so that older users — particularly farmers — can easily and confidently find specific products without frustration or confusion?</p>
+    </div>
+    <img src="problem-statement-animal-farmacy.jpg" alt="Problem Statement Visual" class="img-full" />
+  </div>
+</section>
+
+<!-- SECONDARY RESEARCH & PROTOTYPING -->
+<section id="prototype">
+  <div class="container">
+    <div class="phase-banner">
+      <div class="phase-number">03</div>
+      <div><div class="phase-name">Phase Three</div><div class="phase-heading">Secondary Research &amp; Prototyping</div></div>
+    </div>
+    <div class="section-eyebrow">Develop</div>
+    <h2 class="section-title">From Insight to Ideas</h2>
+
+    <div class="callout">
+      <span class="callout-label">⚡ Challenge</span>
+      <p>During my research and early paper prototyping, the Animal Farmacy homepage changed. I contacted the stakeholder and obtained their usability testing report, then compared and analysed it against my own research.</p>
+    </div>
+
+    <img src="before-after-redesign-animal-farmacy.jpg" alt="Old homepage vs Redesigned homepage — stakeholder report" class="img-full" />
+    <p class="img-caption">Old homepage vs redesigned homepage — stakeholder report</p>
+
+    <img src="colour-contrast-table-animal-farmacy.jpg" alt="Analysis — stakeholder report vs my own research" class="img-full" />
+    <p class="img-caption">Analysis and comparison of the stakeholder's usability testing report with my own research</p>
+
+    <img src="heuristic-website-review-animal-farmacy.jpg" alt="Second Heuristic Evaluation — new homepage" class="img-full" />
+    <p class="img-caption">Second heuristic evaluation of the new homepage — very little or no improvement in search and navigation</p>
+  </div>
+</section>
+
+<!-- MOOD BOARD, MENU & PAPER PROTOTYPES -->
+<section id="moodboard">
+  <div class="container">
+    <div class="section-eyebrow">Mood Board, Menu &amp; Paper Prototypes</div>
+    <h2 class="section-title">Building the Design Direction</h2>
+
+    <h3 class="sub-title">Mood Board — Search Accessibility</h3>
+    <p>To ensure my search tools met accessibility standards, I researched effective search box examples — including those with written instructions inside the field. I also verified that colour ratios met WCAG standards while representing Animal Farmacy's brand.</p>
+    <img src="moodboard-animal-farmacy.jpg" alt="Competitor examples — Rightmove and Next search bars" class="img-full" />
+    <p class="img-caption">Mood board — competitor examples of accessible search bars (Rightmove, Next)</p>
+
+    <div class="img-grid-2">
+      <div>
+        <img src="contrast-checker-accessibility-animal-farmacy.jpg" alt="WCAG Contrast Checker — 1.98:1 failing all accessibility standards" />
+        <p class="img-caption" style="margin-top:0.5rem;">WCAG contrast checker — original site failing all standards at 1.98:1</p>
+      </div>
+      <div>
+        <img src="ia-nav-audit-animal-farmacy.jpg" alt="Menu Restructure — Information Architecture" />
+        <p class="img-caption" style="margin-top:0.5rem;">Menu restructure — information architecture with 4 main categories</p>
       </div>
     </div>
-    <div class="hero-image-panel">
-      <img src="../animal-farmacy-cover.jpg" alt="Farmer using mobile phone in the field" />
+
+    <h3 class="sub-title">Paper Prototypes</h3>
+    <p>After creating the mood board with examples of search tools, accessible web pages, better colour ratios, and a more organised menu, I created four paper prototypes. By mixing the order of papers and questions, I gathered more precise results with fewer biases.</p>
+    <div class="img-grid-4">
+      <img src="wireframe-sketch-01-animal-farmacy.jpg" alt="Paper Prototype Version 1" />
+      <img src="wireframe-sketch-02-animal-farmacy.jpg" alt="Paper Prototype Version 2" />
+      <img src="wireframe-sketch-03-animal-farmacy.jpg" alt="Paper Prototype Version 3" />
+      <img src="wireframe-sketch-04-animal-farmacy.jpg" alt="Paper Prototype Version 4" />
     </div>
-  </section>
 
-  <!-- OVERVIEW -->
-  <section id="overview">
-    <div class="container">
-      <div class="section-eyebrow">Overview</div>
-      <h2 class="section-title">The Challenge</h2>
-      <div class="overview-grid">
-        <div>
-          <p>E-commerce websites often struggle to provide accessible navigation and intuitive search tools, especially for older users. The Animal Farmacy homepage suffered from a lack of search functionality, poorly structured product categories, and a lack of visible, user-friendly navigation options.</p>
-          <p>These problems created frustration among users — especially older farmers with limited digital knowledge — and prevented fast and efficient product discovery.</p>
-          <p>This project focused on redesigning the homepage to prioritise accessibility, intuitive navigation, and user-centric search functionality.</p>
-        </div>
-        <div>
-          <div class="callout">
-            <span class="callout-icon">💡</span>
-            <p><strong>Problem Statement</strong><br><br>How might we make the search and navigation tools more intuitive and visible, so that older users — particularly farmers — can easily and confidently find specific products without frustration or confusion?</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat-cell">
-          <span class="stat-number">57+</span>
-          <span class="stat-label">Avg. age of Irish farmers</span>
-        </div>
-        <div class="stat-cell">
-          <span class="stat-number">40%</span>
-          <span class="stat-label">Couldn't recognise search icon</span>
-        </div>
-        <div class="stat-cell">
-          <span class="stat-number">6</span>
-          <span class="stat-label">Users completed all Maze tasks</span>
-        </div>
-      </div>
-
-      <img src="heuristic-website-review-animal-farmacy.jpg" alt="Animal Farmacy homepage overview" class="img-full" />
+    <h3 class="sub-title">Guerilla Testing</h3>
+    <p>I took my paper prototypes to my workplace and tested them with older users — including some ex-farmers — asking them to find products, contact details, blogs, and the search bar.</p>
+    <img src="key-quote-animal-farmacy.jpg" alt="Guerilla testing — winning paper prototype" class="img-full" />
+    <div class="callout">
+      <span class="callout-label">💡 Key Finding</span>
+      <p>One paper prototype stood out clearly by its ease of finding the search bar. This design carried directly into the final digital prototype.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- BACKGROUND -->
-  <section id="background">
-    <div class="container">
-      <div class="section-eyebrow">Background</div>
-      <h2 class="section-title">Context &amp; User Base</h2>
-      <p>This case study is based on a real-world project where the client requested that I improve the user experience of their e-commerce platform. With an average user demographic of farmers aged 57+, the challenges included:</p>
-      <ul>
-        <li>Difficulty in locating specific products due to unclear navigation</li>
-        <li>Ineffective use of search functionality tools, resulting in user frustration</li>
-        <li>Poor alignment with accessibility standards, limiting usability for older users</li>
-      </ul>
-
-      <h3 class="subsection-title">Design Process: Double Diamond</h3>
-      <p>I chose the Double Diamond framework because it provides a clear, structured approach to problem-solving — first exploring user challenges widely, then narrowing down on specific, actionable solutions. Its iterative nature ensured a thorough understanding of user needs through discovery and definition phases, followed by targeted design and delivery phases.</p>
-
-      <div class="process-steps">
-        <div class="process-step">
-          <div class="step-dot">1</div>
-          <div class="step-label">Discover</div>
-          <div class="step-sub">Research &amp; exploration</div>
-        </div>
-        <div class="process-step">
-          <div class="step-dot">2</div>
-          <div class="step-label">Define</div>
-          <div class="step-sub">Insights &amp; problem framing</div>
-        </div>
-        <div class="process-step">
-          <div class="step-dot">3</div>
-          <div class="step-label">Develop</div>
-          <div class="step-sub">Ideation &amp; prototyping</div>
-        </div>
-        <div class="process-step">
-          <div class="step-dot">4</div>
-          <div class="step-label">Deliver</div>
-          <div class="step-sub">Testing &amp; final design</div>
-        </div>
-      </div>
+<!-- HIGH-FIDELITY PROTOTYPE -->
+<section id="hifi">
+  <div class="container">
+    <div class="phase-banner">
+      <div class="phase-number">04</div>
+      <div><div class="phase-name">Phase Four</div><div class="phase-heading">High-Fidelity Prototype</div></div>
     </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="container">
-      <div class="phase-banner">
-        <div class="phase-number">01</div>
-        <div>
-          <div class="phase-name">Phase One</div>
-          <div class="phase-title">Research &amp; Findings</div>
-        </div>
-      </div>
-
-      <div class="section-eyebrow">Primary Research</div>
-      <h2 class="section-title">How I Understood the Problem</h2>
-
-      <div class="finding-cards">
-        <div class="finding-card">
-          <h4>Heuristic Evaluation</h4>
-          <p>Identified key usability issues including unclear navigation, mismatched visuals, cluttered layout, and a lack of customer support options.</p>
-        </div>
-        <div class="finding-card">
-          <h4>Competitor Analysis</h4>
-          <p>Analysed best practices from similar e-commerce platforms in Ireland and globally (Valley Vet, Farmers Market, Next, Chupi).</p>
-        </div>
-        <div class="finding-card">
-          <h4>User Interviews</h4>
-          <p>Conducted with farmers and farming-related users aged 25–65+ to understand their online shopping behaviour and pain points.</p>
-        </div>
-        <div class="finding-card">
-          <h4>Accessibility Audit</h4>
-          <p>Evaluated the site against WCAG standards for contrast, readability, and navigation accessibility.</p>
-        </div>
-      </div>
-
-      <div class="img-grid-2">
-        <img src="heuristic-evaluation-animal-farmacy.jpg" alt="Heuristic evaluation" />
-        <img src="competitor-analysis-animal-farmacy.jpg" alt="Competitor analysis" />
-      </div>
-
-      <div class="img-grid-2">
-        <img src="heatmap-view-a-animal-farmacy.jpg" alt="Heatmap view A" />
-        <img src="heatmap-view-b-animal-farmacy.jpg" alt="Heatmap view B" />
-      </div>
-
-      <img src="ia-nav-audit-animal-farmacy.jpg" alt="IA and navigation audit" class="img-full" />
-
-      <h3 class="subsection-title">Key Findings</h3>
-
-      <h4>Navigation Issues</h4>
-      <ul>
-        <li>Hidden menus and unclear category names confused users</li>
-        <li>Older users struggled to recognise the magnifying glass as a search icon</li>
-        <li>Breadcrumb navigation was missing, leaving users uncertain of their location</li>
-      </ul>
-      <div class="quote-block">
-        <p>"If someone doesn't see the menu they can always use the search bar" — user</p>
-      </div>
-
-      <h4>Search Bar Challenges</h4>
-      <ul>
-        <li>The search bar was small, lacked contrast, and was not intuitive</li>
-        <li>The magnifying glass icon was not recognised by <strong>40% of older users</strong></li>
-        <li>Users relied on scrolling or trial-and-error instead of using the search bar</li>
-      </ul>
-
-      <h4>Information Architecture Problems</h4>
-      <ul>
-        <li>Categories like "Farm Equipment" and "Health Products" were too broad</li>
-        <li>Products were not grouped logically (e.g. "Calf Jackets" misplaced)</li>
-        <li>Shipping and contact information were not visible and difficult to find</li>
-      </ul>
-      <div class="quote-block">
-        <p>"I would put calf jacket under the farm equipment" — user</p>
-      </div>
-
-      <h4>Accessibility</h4>
-      <ul>
-        <li>Users complained about colours, text size (too small), and buttons that are too small</li>
-        <li>Hidden hamburger menu was unfamiliar to older users</li>
-        <li>No descriptive text to help users take the correct action</li>
-      </ul>
-
-      <img src="survey-chart-animal-farmacy.jpg" alt="Survey chart" class="img-full" />
-
-      <img src="affinity-map-animal-farmacy_2_.jpg" alt="Usability testing affinity diagram" class="img-full" />
-      <p class="img-caption">Usability testing — affinity diagram</p>
+    <div class="section-eyebrow">Delivery</div>
+    <h2 class="section-title">Key Features of the Redesign</h2>
+    <p>I created a high-fidelity prototype in Figma incorporating all key learnings from research, testing, and stakeholder feedback.</p>
+    <a href="https://www.figma.com/design/PwgRtBMBw4hHxcHoyxtqyi/Animal-Farmacy?node-id=93-987" target="_blank" class="figma-link">🎨 View Figma Prototype →</a>
+    <img src="product-listing-frame-animal-farmacy.jpg" alt="Animal Farmacy redesigned homepage on laptop" class="img-full" style="margin-top:2rem;" />
+    <div class="card-grid-2">
+      <div class="card"><h4>Improved Search</h4><p>Prominently positioned, enlarged, with descriptive placeholder text and example text below the field.</p></div>
+      <div class="card"><h4>Logical Navigation</h4><p>Visible menu with regrouped main categories — no more hidden hamburger menus.</p></div>
+      <div class="card"><h4>Accessibility First</h4><p>Font sizes 18pt inside search box, 40pt for headings. High-contrast colours meeting WCAG AA standards.</p></div>
+      <div class="card"><h4>Shipping on Homepage</h4><p>Shipping information visible at the top — no searching or hunting required.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DEFINE -->
-  <section id="define">
-    <div class="container">
-      <div class="phase-banner">
-        <div class="phase-number">02</div>
-        <div>
-          <div class="phase-name">Phase Two</div>
-          <div class="phase-title">Define Stage</div>
-        </div>
+<!-- MAZE USABILITY TESTING -->
+<section id="testing">
+  <div class="container">
+    <div class="section-eyebrow">Maze Usability Testing</div>
+    <h2 class="section-title">Testing the Digital Prototype</h2>
+    <p>I used Maze to create tasks and questions testing the visibility and use of search tools. The link was sent to 6 users aged 35–55+. All users completed all tasks and answered all questions.</p>
+
+    <h3 class="sub-title">Q: How would you find a product you want to buy on the homepage?</h3>
+    <img src="survey-chart-animal-farmacy.jpg" alt="Maze results — How would you find a product" class="img-full" />
+
+    <h3 class="sub-title">Task 1 — Finding Sheep Supplements</h3>
+    <p>Imagine you're looking for sheep supplements. Where would you click first on the homepage to start your search?</p>
+    <img src="heatmap-view-a-animal-farmacy.jpg" alt="Task 1 — Heatmap click results — sheep supplements" class="img-full" />
+
+    <h3 class="sub-title">Task 2 — Finding the Search Bar</h3>
+    <p>Can you find and click on the search bar — where you would enter the product you are looking for?</p>
+    <img src="heatmap-view-b-animal-farmacy.jpg" alt="Task 2 — Heatmap click results — search bar" class="img-full" />
+
+    <h3 class="sub-title">Q: What is the first thing that catches your eye on the homepage?</h3>
+    <img src="survey-chart-2-animal-farmacy.jpg" alt="Maze results — First thing catches eye on homepage" class="img-full" />
+
+    <h3 class="sub-title">Open Question — How would you improve the search bar?</h3>
+    <div class="quote-block"><p>"I think it's fine as it is."</p></div>
+    <div class="quote-block"><p>"Maybe put it in the middle of the screen and have top selling products on top?"</p></div>
+    <div class="quote-block"><p>"It was easy to find it."</p></div>
+    <div class="quote-block"><p>"It looks great where it is now. One second option would be maybe above/below the product menu."</p></div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section id="next-steps">
+  <div class="container">
+    <div class="section-eyebrow">Next Steps</div>
+    <h2 class="section-title">What Comes Next</h2>
+    <div class="next-steps-grid">
+      <div class="next-step-card">
+        <span class="card-icon">🔍</span>
+        <h4>Immediate Enhancements</h4>
+        <ul>
+          <li>Advanced search filters (price, product type)</li>
+          <li>Breadcrumb navigation labels</li>
+          <li>User profiles with purchase history &amp; favourites</li>
+          <li>"Need Help" widget for struggling users</li>
+          <li>Screen reader support (WCAG AA)</li>
+        </ul>
       </div>
-
-      <div class="section-eyebrow">Synthesis</div>
-      <h2 class="section-title">Turning Research into Insight</h2>
-
-      <h3 class="subsection-title">Empathy Map</h3>
-      <p>After collecting data from heuristic evaluations, interviews, case studies, usability tests, and surveys, I incorporated user feedback into an empathy map to better understand their frustrations, goals, and behaviours.</p>
-
-      <div class="finding-cards">
-        <div class="finding-card">
-          <h4>🧠 Think</h4>
-          <p>Users were confused about navigation and felt unsure where to start their search.</p>
-        </div>
-        <div class="finding-card">
-          <h4>💭 Feel</h4>
-          <p>Frustrated, overwhelmed, and disoriented by poorly labelled menus and hidden search functionality.</p>
-        </div>
-        <div class="finding-card">
-          <h4>🗣 Say</h4>
-          <p>"Where do I even begin?" — "The search bar is too hard to find."</p>
-        </div>
-        <div class="finding-card">
-          <h4>🖱 Do</h4>
-          <p>Relied on trial-and-error methods like scrolling endlessly or guessing categories.</p>
-        </div>
+      <div class="next-step-card">
+        <span class="card-icon">🤖</span>
+        <h4>AI-Driven Search</h4>
+        <ul>
+          <li>Predictive text and auto-complete suggestions</li>
+          <li>Natural language processing for queries</li>
+          <li>Voice search for hands-free, field use</li>
+        </ul>
       </div>
-
-      <div class="img-grid-2">
-        <img src="empathy-map-animal-farmacy.jpg" alt="Empathy map" />
-        <img src="pain-points-animal-farmacy.jpg" alt="Pain points" />
+      <div class="next-step-card">
+        <span class="card-icon">🛒</span>
+        <h4>Subscription &amp; Bulk Buy</h4>
+        <ul>
+          <li>Subscription for repeating purchases</li>
+          <li>Bulk-buy options with clear pricing</li>
+          <li>Free shipping threshold visible upfront</li>
+        </ul>
       </div>
-
-      <img src="research-synthesis-animal-farmacy.jpg" alt="Research synthesis" class="img-full" />
-
-      <h3 class="subsection-title">Personas</h3>
-      <p>After creating three personas with their pain points, goals, frustrations, and journey maps, I focused on one: <strong>Jack</strong>.</p>
-
-      <div class="persona-card">
-        <div class="persona-avatar">👨‍🌾</div>
-        <div>
-          <div class="persona-name">Jack</div>
-          <div class="persona-subtitle">Irish Farmer, 62 — Limited digital experience</div>
-          <p><strong>Why Jack?</strong><br>Jack represents the group of older farmers (average age of 57 in Ireland), users who would love to buy online but lack tech literacy. Fixing the problem for older users like Jack will have a positive impact and fix problems for all other users — accessibility features benefit everyone.</p>
-          <ul>
-            <li>Struggles to recognise icons and navigate dropdown menus</li>
-            <li>Frustrated by insufficient product descriptions</li>
-            <li>Needs to shop while on the go — in barns, fields, outdoors</li>
-            <li>A returning customer if the experience is easy and trustworthy</li>
-          </ul>
-        </div>
-      </div>
-
-      <img src="hmw-search-findability-animal-farmacy.jpg" alt="How Might We statements" class="img-full" />
-
-      <h3 class="subsection-title">How Might We?</h3>
-      <p>Since issues with product search and navigation from the homepage kept repeating across all personas, I was able to narrow them down into a single problem statement:</p>
-
-      <div class="callout">
-        <span class="callout-icon">💡</span>
-        <p><strong>Problem Statement</strong><br><br>How might we make the search and navigation tools more intuitive and visible, so that older users — particularly farmers — can easily and confidently find specific products without frustration or confusion?</p>
+      <div class="next-step-card">
+        <span class="card-icon">📊</span>
+        <h4>Analytics &amp; Evaluation</h4>
+        <ul>
+          <li>Track search success rates and task completion</li>
+          <li>Monitor heatmaps for ongoing usability issues</li>
+          <li>Regular usability testing with each new feature</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- DEVELOP -->
-  <section id="develop">
-    <div class="container">
-      <div class="phase-banner">
-        <div class="phase-number">03</div>
-        <div>
-          <div class="phase-name">Phase Three</div>
-          <div class="phase-title">Develop Stage</div>
-        </div>
-      </div>
-
-      <div class="section-eyebrow">Ideation &amp; Prototyping</div>
-      <h2 class="section-title">From Insights to Ideas</h2>
-
-      <div class="callout">
-        <span class="callout-icon">⚡</span>
-        <p><strong>Challenge</strong><br><br>During my research and development of the basic paper prototypes, the homepage of Animal Farmacy changed. Contacting the stakeholder, I was able to get the report of research recently made — I analysed and compared it with my own findings.</p>
-      </div>
-
-      <h3 class="subsection-title">Old Homepage vs. Redesigned Homepage</h3>
-      <img src="before-after-redesign-animal-farmacy.jpg" alt="Old homepage and redesigned homepage" class="img-full" />
-      <p class="img-caption">Old homepage and redesigned homepage</p>
-
-      <img src="colour-contrast-table-animal-farmacy.jpg" alt="Colour contrast and accessibility analysis" class="img-full" />
-      <p class="img-caption">Analysis and comparison of the stakeholder's usability testing report with my own research</p>
-
-      <h3 class="subsection-title">Mood Board &amp; Accessibility</h3>
-      <p>To ensure my search tools met accessibility standards, I researched examples of effective search boxes — including those with written instructions within the field. I also verified that colour ratios met accessibility standards while representing Animal Farmacy's brand.</p>
-
-      <img src="moodboard-animal-farmacy.jpg" alt="Mood board" class="img-full" />
-
-      <h3 class="subsection-title">Menu Design</h3>
-      <p>My previous usability testing showed users expected certain categories on the homepage itself — not hidden in a menu. Shipping information, FAQ, contact details, and product categories all needed to be visible. This led me to identify <strong>4 main categories</strong> for a visible, always-present navigation menu.</p>
-
-      <h3 class="subsection-title">Paper Prototypes</h3>
-      <p>After creating the mood board with good examples of search tools, accessible web pages, better colour ratios, and a more organised menu, I created four paper prototypes to quickly test with real users before moving to digital.</p>
-
-      <div class="img-grid-3">
-        <img src="wireframe-sketch-01-animal-farmacy.jpg" alt="Wireframe sketch 1" />
-        <img src="wireframe-sketch-02-animal-farmacy.jpg" alt="Wireframe sketch 2" />
-        <img src="wireframe-sketch-03-animal-farmacy.jpg" alt="Wireframe sketch 3" />
-      </div>
+<!-- CONCLUSION -->
+<section class="conclusion-dark" style="border-top:none;">
+  <div class="container">
+    <div class="section-eyebrow">Conclusion</div>
+    <h2 class="section-title">What This Project Taught Me</h2>
+    <p>Working on the Animal Farmacy homepage, I discovered many challenges in search functionality, navigation, and accessibility. By focusing on user feedback and meeting accessibility standards, I created a new design that helps users locate search tools more easily and navigate the platform with confidence.</p>
+    <div class="learnings-grid">
+      <div class="learning-item">Design for the extremes — if it works for a 70-year-old farmer in a barn, it works for everyone.</div>
+      <div class="learning-item">Search is primary — it's not a nice-to-have, it's the core journey for older users.</div>
+      <div class="learning-item">Information architecture shapes behaviour — poor categories confuse even motivated users.</div>
+      <div class="learning-item">Test with real users. Guerilla testing revealed surprises no desk research could predict.</div>
+      <div class="learning-item">When in doubt, go back to the research. It's the compass throughout the project.</div>
+      <div class="learning-item">Paper before pixels. Old-fashioned prototypes revealed what no digital tool could.</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TESTING -->
-  <section id="testing">
-    <div class="container">
-      <div class="section-eyebrow">Guerilla Testing</div>
-      <h2 class="section-title">Testing in the Real World</h2>
-
-      <p>To communicate directly with users, I took my paper prototypes and conducted Guerilla testing in my workplace, where I was able to find older users — including some ex-farmers. By mixing the order of papers and questions, I gathered more precise results with fewer biases.</p>
-
-      <h3 class="subsection-title">Questions Asked</h3>
-      <ol>
-        <li>How would you start your search to find farm supplies on this homepage?</li>
-        <li>Where would you expect to find blogs or articles?</li>
-        <li>Show me with your finger where you would start your search for animal medicine.</li>
-        <li>Where would you look for company contact details?</li>
-        <li>If you could point with your finger, where would you start if searching for minerals or supplements?</li>
-        <li>What part of the homepage draws your attention first just by looking at it?</li>
-      </ol>
-
-      <div class="img-grid-4">
-        <img src="wireframe-sketch-04-animal-farmacy.jpg" alt="Wireframe sketch 4" />
-        <img src="key-quote-animal-farmacy.jpg" alt="Key user quote" />
-        <img src="survey-chart-2-animal-farmacy.jpg" alt="Survey results" />
-        <img src="contrast-checker-accessibility-animal-farmacy.jpg" alt="Contrast checker accessibility" />
-      </div>
-
-      <div class="callout">
-        <span class="callout-icon">💡</span>
-        <p><strong>Key Insight</strong><br><br>One paper prototype stood out by its ease of finding the search bar — this design principle carried directly into the final digital prototype.</p>
-      </div>
-
-      <img src="problem-statement-animal-farmacy.jpg" alt="Problem statement" class="img-full" />
-      <img src="product-listing-frame-animal-farmacy.jpg" alt="Product listing frame" class="img-full" />
-    </div>
-  </section>
-
-  <!-- DELIVERY -->
-  <section id="delivery">
-    <div class="container">
-      <div class="phase-banner">
-        <div class="phase-number">04</div>
-        <div>
-          <div class="phase-name">Phase Four</div>
-          <div class="phase-title">Delivery Stage</div>
-        </div>
-      </div>
-
-      <div class="section-eyebrow">Final Design</div>
-      <h2 class="section-title">The Digital Prototype</h2>
-
-      <p>I created a high-fidelity prototype in Figma incorporating all key learnings from research, testing, and stakeholder feedback.</p>
-
-      <a href="https://www.figma.com/design/PwgRtBMBw4hHxcHoyxtqyi/Animal-Farmacy?node-id=93-987" target="_blank" class="figma-link">
-        🎨 View Figma Prototype →
-      </a>
-
-      <div class="img-grid-2" style="margin-top: 2rem;">
-        <img src="before-after-redesign-animal-farmacy.jpg" alt="Final redesign" />
-        <img src="product-listing-frame-animal-farmacy.jpg" alt="Product listing" />
-      </div>
-
-      <div class="img-grid-2">
-        <img src="heuristic-website-review-animal-farmacy.jpg" alt="Navigation redesign" />
-        <img src="wireframe-sketch-01-animal-farmacy.jpg" alt="Mobile wireframe" />
-      </div>
-
-      <h3 class="subsection-title">Key Features of the Redesign</h3>
-
-      <ul class="features-list">
-        <li><strong>Improved Search Functionality</strong> — Prominently positioned with descriptive placeholder text ("Type your text here") and example text below. Enlarged for better visibility.</li>
-        <li><strong>Logical Navigation Structure</strong> — Visible menu with regrouped main categories for easier navigation.</li>
-        <li><strong>Accessibility First</strong> — Font sizes increased to 18pt inside the search box and 40pt for headings. High-contrast colours meet WCAG ratio standards.</li>
-        <li><strong>Shipping Information on Homepage</strong> — Visible at the top of the page so users don't have to search for it.</li>
-        <li><strong>Instructional Text in Search Box</strong> — Helps users know what to do next without guessing.</li>
-      </ul>
-
-      <h3 class="subsection-title">Digital Prototype Testing (Maze)</h3>
-      <p>For the digital prototype, I used <strong>Maze</strong> to create tasks and questions testing visibility and use of the search tools. The link was sent to <strong>6 users aged 35–55+</strong>. All users completed all tasks and answered all questions.</p>
-
-      <div class="quote-block"><p>"I think it's fine as it is."</p></div>
-      <div class="quote-block"><p>"Maybe put it in the middle of the screen and have top selling products on top?"</p></div>
-      <div class="quote-block"><p>"It looks great where it is now. One second option would be maybe above/below the product menu."</p></div>
-    </div>
-  </section>
-
-  <!-- NEXT STEPS -->
-  <section id="next-steps">
-    <div class="container">
-      <div class="section-eyebrow">What's Next</div>
-      <h2 class="section-title">Next Steps &amp; Future Plans</h2>
-
-      <div class="next-steps-grid">
-        <div class="next-step-card">
-          <span class="card-icon">🔍</span>
-          <h4>Immediate Enhancements</h4>
-          <ul>
-            <li>Advanced search filters (price, product type)</li>
-            <li>Breadcrumb labels for better clarity</li>
-            <li>User profile with purchase history</li>
-            <li>Favourite items functionality</li>
-            <li>"Need Help" widget for struggling users</li>
-            <li>Screen reader support</li>
-          </ul>
-        </div>
-        <div class="next-step-card">
-          <span class="card-icon">🤖</span>
-          <h4>AI-Driven Search</h4>
-          <ul>
-            <li>Predictive text and auto-complete suggestions</li>
-            <li>Natural language processing for user queries</li>
-            <li>Voice search for hands-free, field use</li>
-          </ul>
-        </div>
-        <div class="next-step-card">
-          <span class="card-icon">🛒</span>
-          <h4>Subscription &amp; Bulk Options</h4>
-          <ul>
-            <li>Subscription feature for repeating purchases</li>
-            <li>Bulk-buy options with clear pricing</li>
-            <li>Free shipping information visible upfront</li>
-          </ul>
-        </div>
-        <div class="next-step-card">
-          <span class="card-icon">📊</span>
-          <h4>Monitoring &amp; Evaluation</h4>
-          <ul>
-            <li>Track search success rates and task completion</li>
-            <li>Monitor heatmaps for usability issues</li>
-            <li>Regular user testing with each new feature</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONCLUSION -->
-  <section id="conclusion" class="conclusion-section">
-    <div class="container">
-      <div class="section-eyebrow">Conclusion</div>
-      <h2 class="section-title">Reflecting on the Work</h2>
-      <p>Working on the Animal Farmacy homepage, I discovered many challenges in search functionality, navigation, and accessibility. By focusing on user feedback — interviews, surveys, usability testing — and meeting accessibility standards, I created a new design that helps users locate search tools more easily and navigate the platform with more confidence.</p>
-      <p>These changes are now a strong base for future improvements like AI-powered search and personalised recommendations, keeping the platform both user-friendly, competitive, and business-successful.</p>
-    </div>
-  </section>
-
-  <!-- LEARNINGS -->
-  <section id="learnings">
-    <div class="container">
-      <div class="section-eyebrow">Learnings</div>
-      <h2 class="section-title">What I Took Away</h2>
-      <p>Working on this project, I learned a lot. It was challenging to focus on just one thing to improve — but that constraint was the biggest teacher.</p>
-
-      <div class="learnings-grid">
-        <div class="learning-item">It's ok to ask for help when stuck. You don't have to know everything.</div>
-        <div class="learning-item">When in doubt, go back to your research. It always has the answer.</div>
-        <div class="learning-item">Every design decision needs to be backed by research — not intuition alone.</div>
-        <div class="learning-item">Empathy-driven research reveals surprising pain points you never would have imagined.</div>
-        <div class="learning-item">Keep the design simple and accessible — design for everybody.</div>
-        <div class="learning-item">Step away from technology sometimes. Paper prototypes and Guerilla testing reveal things digital tools can't.</div>
-        <div class="learning-item">The best aha moments often happen away from the screen — walking, observing, chatting with people.</div>
-        <div class="learning-item">Write everything down — your thoughts, ideas, instructions for users. Always write.</div>
-        <div class="learning-item">Always think outside the box. The most obvious solution is rarely the best one.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2024 Martina Turjak — UX Researcher &amp; UI/UX Designer<br>
-    Animal Farmacy Case Study · UX Tree Mentorship Program</p>
-  </footer>
+<footer>
+  <p>© 2024 Martina Turjak — UX Researcher &amp; UI/UX Designer<br>
+  Animal Farmacy Case Study · UX Tree Mentorship Program</p>
+</footer>
 
 </body>
 </html>
