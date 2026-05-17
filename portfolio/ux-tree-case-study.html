@@ -84,9 +84,26 @@ nav {
   background: linear-gradient(160deg, #1a1535 0%, #2d1e87 45%, #6d56d4 100%);
   position: relative;
   overflow: hidden;
-  display: flex; align-items: flex-end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   padding: 80px 60px 60px;
   min-height: 62vh;
+}
+.hero-image-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.hero-image-right img {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  border-radius: 12px;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.4));
 }
 .hero-visual::before {
   content: '';
@@ -633,7 +650,8 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 /* ─── RESPONSIVE ─── */
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
-  .hero-visual { padding: 60px 24px 48px; }
+  .hero-visual { padding: 60px 24px 48px; grid-template-columns: 1fr; }
+  .hero-image-right { display: none; }
   .hero-meta { grid-template-columns: 1fr 1fr; }
   .hero-meta-item { border-bottom: 1px solid var(--border); }
   .container { padding: 0 24px; }
@@ -670,6 +688,9 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       <div class="hero-eyebrow"><span></span> Case Study</div>
       <h1 class="hero-title">UX Tree<br><em>Mentorship</em></h1>
       <p class="hero-sub">Redesigning a mentorship platform's navigation and mentor discovery experience — so early-career UX designers can find the guidance they need with confidence.</p>
+    </div>
+    <div class="hero-image-right">
+      <img src="ux-tree-cover.png" alt="UX Tree app mockup on mobile phone" />
     </div>
   </div>
   <div class="hero-meta">
