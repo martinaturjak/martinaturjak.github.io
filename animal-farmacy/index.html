@@ -109,7 +109,9 @@
     @media (max-width: 900px) {
       nav { padding: 0 1.5rem; } .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; } .hero-content { padding: 8rem 2rem 4rem; }
-      .hero-image-panel { height: 300px; }
+      .hero-image-panel { height: 260px; }
+      .hero-image-panel img { object-position: center center; opacity: 1; }
+      .hero-image-panel::before { background: linear-gradient(180deg, var(--green-dark) 0%, transparent 40%); }
       .grid-2, .next-grid, .stats-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
