@@ -14,7 +14,7 @@
   --violet-mid: #8475e8;
   --ink: #0d0c14;
   --ink-2: #2e2c3e;
-  --ink-3: #6b6880;
+  --ink-3: #4a4760;
   --stone: #f4f3fb;
   --border: #e4e1f5;
   --white: #ffffff;
@@ -30,7 +30,7 @@ body {
   font-family: var(--sans);
   background: var(--white);
   color: var(--ink);
-  line-height: 1.65;
+  line-height: 1.75;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
@@ -120,7 +120,7 @@ nav {
 .hero-content { position: relative; z-index: 2; max-width: 900px; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
-  font-size: 0.72rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: rgba(255,255,255,0.6);
   margin-bottom: 28px;
@@ -146,7 +146,7 @@ nav {
   font-size: 1.05rem;
   color: rgba(255,255,255,0.7);
   max-width: 540px;
-  line-height: 1.65;
+  line-height: 1.75;
 }
 
 .hero-meta {
@@ -161,7 +161,7 @@ nav {
 .hero-meta-item:last-child { border-right: none; }
 .hero-meta-item label {
   display: block;
-  font-size: 0.65rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.18em;
   color: var(--ink-3); margin-bottom: 7px;
 }
@@ -173,7 +173,7 @@ nav {
   display: inline-block;
   background: var(--violet-soft);
   color: var(--violet-deep);
-  font-size: 0.72rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   padding: 3px 9px; border-radius: 4px;
   margin: 2px 2px 2px 0;
 }
@@ -189,7 +189,7 @@ nav {
 
 /* ─── SECTION HEADER ─── */
 .s-label {
-  font-size: 0.65rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.2em;
   color: var(--violet); display: flex;
   align-items: center; gap: 12px;
@@ -201,25 +201,25 @@ nav {
   background: var(--violet);
   border-radius: 2px;
 }
-h1.s-title {
+h2.s-title {
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 300;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
   line-height: 1.15;
   color: var(--ink);
   margin-bottom: 32px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
-h2.s-head {
+h3.s-head {
   font-family: var(--serif);
-  font-size: clamp(1.4rem, 2.5vw, 1.95rem);
-  font-weight: 300;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
   color: var(--ink);
   margin-bottom: 16px;
   margin-top: 56px;
   letter-spacing: -0.01em;
 }
-h2.s-head:first-child { margin-top: 0; }
+h3.s-head:first-child { margin-top: 0; }
 p.body {
   font-size: 0.975rem;
   color: var(--ink-2);
@@ -286,7 +286,7 @@ p.body:last-child { margin-bottom: 0; }
 }
 .ov-card:hover { background: rgba(255,255,255,0.11); }
 .ov-card-num {
-  font-size: 0.65rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.2em;
   color: rgba(255,255,255,0.4);
   margin-bottom: 16px;
@@ -311,7 +311,7 @@ p.body:last-child { margin-bottom: 0; }
   min-height: 200px;
 }
 .img-ph svg { opacity: 0.35; }
-.img-ph small { font-size: 0.72rem; opacity: 0.6; }
+.img-ph small { font-size: 0.75rem; opacity: 0.6; }
 .img-ph.tall { min-height: 380px; }
 .img-ph.wide { min-height: 140px; }
 .img-ph.center { max-width: 68%; margin: 0 auto; }
@@ -339,7 +339,7 @@ p.body:last-child { margin-bottom: 0; }
   background: var(--violet);
 }
 .prob-badge {
-  font-size: 0.65rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.18em;
   color: var(--violet); margin-bottom: 14px;
 }
@@ -351,7 +351,7 @@ p.body:last-child { margin-bottom: 0; }
 }
 .prob-card > p { font-size: 0.9rem; color: var(--ink-2); margin-bottom: 24px; }
 .prob-card .imp-label {
-  font-size: 0.65rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.14em;
   color: var(--ink-3); margin-bottom: 10px;
 }
@@ -398,7 +398,7 @@ p.body:last-child { margin-bottom: 0; }
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; gap: 8px;
 }
-.comp-card p { font-size: 0.875rem; color: var(--ink-2); line-height: 1.65; }
+.comp-card p { font-size: 0.875rem; color: var(--ink-2); line-height: 1.75; }
 
 /* ─── INSIGHT ─── */
 .insight {
@@ -411,7 +411,7 @@ p.body:last-child { margin-bottom: 0; }
 }
 .insight-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
 .insight-body strong {
-  display: block; font-size: 0.72rem;
+  display: block; font-size: 0.75rem;
   text-transform: uppercase; letter-spacing: 0.12em;
   color: var(--violet); margin-bottom: 5px; font-weight: 700;
 }
@@ -457,7 +457,7 @@ p.body:last-child { margin-bottom: 0; }
   font-style: italic;
 }
 .ps-label {
-  font-size: 0.65rem; font-weight: 700;
+  font-size: 0.75rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.2em;
   color: rgba(255,255,255,0.35);
   margin-bottom: 20px; display: block;
@@ -466,7 +466,7 @@ p.body:last-child { margin-bottom: 0; }
   font-family: var(--serif);
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 300; font-style: italic;
-  color: white; line-height: 1.65;
+  color: white; line-height: 1.75;
   max-width: 720px; position: relative; z-index: 1;
 }
 .ps-block p mark {
@@ -676,7 +676,8 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div id="progress"></div>
 
 <!-- NAV -->
-<nav>
+<a href="#main-content" style="position:absolute;left:-9999px;top:0;background:#5a47d3;color:white;padding:0.5rem 1rem;z-index:999;font-size:0.9rem;border-radius:0 0 4px 0;" onfocus="this.style.left='0'">Skip to main content</a>
+<nav aria-label="Main navigation">
   <a href="https://martinaturjak.github.io""#" class="nav-logo">Portfolio</a>
   <span class="nav-tag">UX Case Study · 2023</span>
 </nav>
@@ -684,7 +685,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="hero-visual">
-    <div class="hero-dots"></div>
+    <div class="hero-dots" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="hero-eyebrow"><span></span> Case Study</div>
       <h1 class="hero-title">UX Tree<br><em>Mentorship</em></h1>
@@ -725,12 +726,12 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       <div class="overview-cards">
         <div class="ov-card">
           <div class="ov-card-num">Focus Area 01</div>
-          <h3>Homepage Navigation &amp; Clarity</h3>
+          <h4>Homepage Navigation &amp; Clarity</h4>
           <p>Users struggled to understand what the platform offered and where to go next. The navigation lacked hierarchy and the homepage messaging was ambiguous — particularly for its primary audience of early-stage designers.</p>
         </div>
         <div class="ov-card">
           <div class="ov-card-num">Focus Area 02</div>
-          <h3>Mentor Discovery &amp; Profile Depth</h3>
+          <h4>Mentor Discovery &amp; Profile Depth</h4>
           <p>The Mentors page failed to surface the details that actually drive decisions — career backgrounds, skills, mentoring approach, and social proof. Users left without enough information to feel confident applying.</p>
         </div>
       </div>
@@ -742,12 +743,12 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal">
     <div class="s-label">Project Details</div>
-    <h1 class="s-title">Defining the Problem</h1>
+    <h2 class="s-title">Defining the Problem</h2>
 
-    <h2 class="s-head">Problem Identification</h2>
+    <h3 class="s-head">Problem Identification</h3>
     <p class="body">User research revealed a consistent pattern: visitors arrived with genuine interest in the UX Tree mentorship program, but left confused. The site navigation was unclear, mentor profiles lacked meaningful detail, and it was difficult to understand what joining the program would actually involve. Key information — such as mentor experience, career trajectory, and mentoring style — was either buried or missing entirely.</p>
 
-    <h2 class="s-head">Defining Scope</h2>
+    <h3 class="s-head">Defining Scope</h3>
     <p class="body">Interviews and usability sessions made the scope clear: users needed more context about mentor backgrounds, a simpler application journey, and a page structure with stronger visual hierarchy. Button contrast, layout logic, and information architecture all required attention.</p>
   </div>
 
@@ -755,7 +756,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 
   <div class="section reveal" style="padding-top:72px">
     <div class="s-label">Methodology</div>
-    <h2 class="s-head">Design Thinking Framework</h2>
+    <h3 class="s-head">Design Thinking Framework</h3>
 
     <img src="img-01-design-thinking.png" alt="Design Thinking Framework" style="width:70%;max-width:680px;display:block;margin:32px auto;border-radius:12px;box-shadow:0 4px 24px rgba(13,12,20,0.08);">
     <p class="body" style="text-align:center; font-size:0.8rem; color:var(--ink-3); margin-top:12px;">
@@ -770,11 +771,11 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal">
     <div class="s-label">The Key Problems</div>
-    <h1 class="s-title">What wasn't working — and how to fix it</h1>
+    <h2 class="s-title">What wasn't working — and how to fix it</h2>
     <div class="prob-grid">
       <div class="prob-card">
         <div class="prob-badge">Problem 01</div>
-        <h3>Mentor profiles didn't build trust or drive action</h3>
+        <h4>Mentor profiles didn't build trust or drive action</h4>
         <p>The "Our Mentors" page presented mentors with insufficient detail. Career history, skills, and personality were largely absent, leaving users unsure who to connect with — or even how to view a full profile.</p>
         <div class="imp-label">Design Improvements</div>
         <ul>
@@ -786,7 +787,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       </div>
       <div class="prob-card">
         <div class="prob-badge">Problem 02</div>
-        <h3>The program itself was hard to understand</h3>
+        <h4>The program itself was hard to understand</h4>
         <p>Users found it difficult to grasp how the mentorship program worked, what the benefits were, what would be expected of them, and whether they could have any say in choosing their mentor.</p>
         <div class="imp-label">Design Improvements</div>
         <ul>
@@ -805,7 +806,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal" id="research">
     <div class="s-label">Research</div>
-    <h1 class="s-title">Understanding users before designing for them</h1>
+    <h2 class="s-title">Understanding users before designing for them</h2>
 
     <div class="research-intro">
       <p class="body">I conducted user research to uncover the real friction points — not just the surface-level ones. This included reviewing how comparable platforms structured their mentor information and communicated their value propositions.</p>
@@ -814,7 +815,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 
     <img src="img-02-research-overview.png" alt="Research Overview" style="width:100%;display:block;margin-bottom:48px;border-radius:12px;box-shadow:0 4px 24px rgba(13,12,20,0.08);">
 
-    <h2 class="s-head">Competitive Analysis</h2>
+    <h3 class="s-head">Competitive Analysis</h3>
     <p class="body">I analysed three direct competitors — MentorCruise, My UX Academy, and ADP List — to identify design patterns that build user trust, support mentor discovery, and clearly communicate program value.</p>
 
     <img src="img-03-competitive-analysis.png" alt="Competitive Analysis" style="width:100%;display:block;margin:24px 0;border-radius:12px;box-shadow:0 4px 24px rgba(13,12,20,0.08);">
@@ -847,7 +848,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <hr class="divider">
 <div class="container">
   <div class="section reveal" style="padding-top:72px">
-    <h2 class="s-head">Survey Findings</h2>
+    <h3 class="s-head">Survey Findings</h3>
     <p class="body">The majority of survey respondents had not previously joined a mentorship program — not due to lack of interest, but limited awareness of the available options. Once introduced to UX Tree, participants responded positively, expressing confidence that mentorship could accelerate their career growth.</p>
     <p class="body">Respondents prioritised mentors with strong industry experience, senior-level expertise, and clear communication skills. They wanted mentorship to support practical skills: user research, usability testing, portfolio development, and career direction.</p>
 
@@ -858,19 +859,32 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <hr class="divider">
 <div class="container">
   <div class="section reveal" style="padding-top:72px">
-    <h2 class="s-head">Usability Study</h2>
+    <h3 class="s-head">Usability Study</h3>
     <p class="body">I ran a moderated usability study covering three key tasks: locating information about the mentorship program, finding a mentor's full profile, and accessing the application form. The sessions surfaced recurring confusion around navigation labels and homepage messaging — users weren't sure where to click or what the platform was for.</p>
     <p class="body">Improvements focused on clearer navigation labels, a restructured mentor profile layout, and a prominent "Our Mentors" call-to-action on the homepage.</p>
 
-    <img src="img-05-usability-study.png" alt="Usability Study - Top 3 Pain Points" style="width:100%;display:block;margin:32px 0;border-radius:12px;box-shadow:0 4px 24px rgba(13,12,20,0.08);">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;">
+      <div style="background:#f3f1ff;border:2px solid #c4bdf5;border-radius:12px;padding:1.25rem;">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#5a47d3;text-transform:uppercase;margin-bottom:0.5rem;">Pain Point 01</p>
+        <p style="font-size:0.9rem;color:#2e2c3e;margin:0;line-height:1.6;">Users are confused about who this program is for — the homepage title and information were unclear.</p>
+      </div>
+      <div style="background:#ece9ff;border:2px solid #5a47d3;border-radius:12px;padding:1.25rem;">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#3b2bbf;text-transform:uppercase;margin-bottom:0.5rem;">Pain Point 02</p>
+        <p style="font-size:0.9rem;color:#2e2c3e;margin:0;line-height:1.6;">Users want clear navigation and more organised information about the mentorship program.</p>
+      </div>
+      <div style="background:#f3f1ff;border:2px solid #8475e8;border-radius:12px;padding:1.25rem;">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#5a47d3;text-transform:uppercase;margin-bottom:0.5rem;">Pain Point 03</p>
+        <p style="font-size:0.9rem;color:#2e2c3e;margin:0;line-height:1.6;">Users want more information about mentors in a visually appealing and trustworthy layout.</p>
+      </div>
+    </div>
 
-    <h2 class="s-head">Personas</h2>
+    <h3 class="s-head">Personas</h3>
     <p class="body">Insights from the survey and usability study were synthesised using affinity diagrams and empathy maps. Two personas emerged, representing the platform's primary user groups and providing a consistent decision-making lens throughout the design process.</p>
 
     <div class="persona-grid">
       <div class="persona-card">
         <div class="persona-hd">
-          <h3>Maya</h3>
+          <h4>Maya</h4>
           <span>Recent UX Graduate</span>
         </div>
         <div class="persona-bd">
@@ -880,7 +894,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       </div>
       <div class="persona-card">
         <div class="persona-hd">
-          <h3>James</h3>
+          <h4>James</h4>
           <span>UX Designer with a CS background</span>
         </div>
         <div class="persona-bd">
@@ -890,16 +904,16 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       </div>
     </div>
 
-    <h2 class="s-head" style="margin-top:56px;">Problem Statement</h2>
+    <h3 class="s-head" style="margin-top:56px;">Problem Statement</h3>
     <p class="body">Both personas pointed to the same core gap on the Mentor page: not enough detail to make an informed, confident decision. This became the anchor for the redesign.</p>
 
     <div class="ps-block">
       <span class="ps-label">Problem Statement — James</span>
       <p>
-        <mark>James</mark>, a UX designer transitioning from a computer science background, needs
-        <mark>a mentor with proven expertise in user research and usability testing</mark>
+        <mark aria-label="highlighted key phrase">James</mark>, a UX designer transitioning from a computer science background, needs
+        <mark aria-label="highlighted key phrase">a mentor with proven expertise in user research and usability testing</mark>
         because he requires structured, personalised guidance
-        <mark>to build the practical skills and confidence needed to fully transition into UX design</mark>.
+        <mark aria-label="highlighted key phrase">to build the practical skills and confidence needed to fully transition into UX design</mark>.
       </p>
     </div>
   </div>
@@ -910,7 +924,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal" id="design">
     <div class="s-label">Ideate</div>
-    <h1 class="s-title">From insights to design decisions</h1>
+    <h2 class="s-title">From insights to design decisions</h2>
     <p class="body">With a clear problem statement and two grounded personas, I moved into ideation. I used Crazy 8 paper prototyping to rapidly explore layout directions for the Mentor page and profile view — keeping the focus on how information could be structured to reduce friction and increase confidence.</p>
 
     <img src="img-08-crazy8-sketches.png" alt="Crazy 8 Paper Prototyping Sketches" style="width:100%;display:block;margin:32px 0;border-radius:12px;box-shadow:0 4px 24px rgba(13,12,20,0.08);">
@@ -920,7 +934,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <hr class="divider">
 <div class="container">
   <div class="section reveal" style="padding-top:72px">
-    <h2 class="s-head" style="text-align:center; margin-top:0">Mentor Page — Before &amp; After</h2>
+    <h3 class="s-head" style="text-align:center; margin-top:0">Mentor Page — Before &amp; After</h3>
     <div class="comparison">
       <div class="before">
         <span class="comp-label">Original</span>
@@ -933,7 +947,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       </div>
     </div>
     <div class="changes-card">
-      <h3>Changes to the Mentor Page</h3>
+      <h4>Changes to the Mentor Page</h4>
       <ul>
         <li><span class="key">Page Title</span> Added "Our Mentors" heading with a supporting hero image — reduced in size to prioritise content</li>
         <li><span class="key">Navigation</span> Retained the original menu structure, adding dropdown indicators to subcategory items for clarity</li>
@@ -950,7 +964,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <hr class="divider">
 <div class="container">
   <div class="section reveal" style="padding-top:72px">
-    <h2 class="s-head" style="text-align:center; margin-top:0">Mentor Bio Page — Before &amp; After</h2>
+    <h3 class="s-head" style="text-align:center; margin-top:0">Mentor Bio Page — Before &amp; After</h3>
     <div class="comparison">
       <div class="before">
         <span class="comp-label">Original</span>
@@ -963,7 +977,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       </div>
     </div>
     <div class="changes-card">
-      <h3>Changes to the Mentor Bio Page</h3>
+      <h4>Changes to the Mentor Bio Page</h4>
       <ul>
         <li><span class="key">Header</span> Mentor photo, name, and job title presented prominently at the top of the page</li>
         <li><span class="key">About Me</span> A personal introduction written by the mentor — covering professional background, interests, and approach</li>
@@ -981,7 +995,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal">
     <div class="s-label">Testing</div>
-    <h1 class="s-title">Prototype 1 — Testing &amp; Findings</h1>
+    <h2 class="s-title">Prototype 1 — Testing &amp; Findings</h2>
 
     <a href="https://www.figma.com/design/LXJLo6vJial4x5kCRPpqGN/Prototype-1?node-id=0-1&t=AcRfspfcNAvgI5L3-0" class="btn" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -1008,7 +1022,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
       </div>
     </div>
 
-    <h2 class="s-head">User Feedback Themes</h2>
+    <h3 class="s-head">User Feedback Themes</h3>
     <ul class="styled-list">
       <li>The "About" section was too brief and lacked personality or depth</li>
       <li>No information on how the mentor originally entered the UX field</li>
@@ -1024,7 +1038,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal" style="padding-top:72px">
     <div class="s-label">Iteration</div>
-    <h1 class="s-title">Prototype 2 — What changed</h1>
+    <h2 class="s-title">Prototype 2 — What changed</h2>
     <ul class="styled-list">
       <li>Mentor name and photo are now clickable and link directly to the full profile</li>
       <li>The "About Me" section was significantly expanded, including how the mentor entered the UX field</li>
@@ -1046,7 +1060,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal" id="outcomes">
     <div class="s-label">Final Design</div>
-    <h1 class="s-title">Live Prototype</h1>
+    <h2 class="s-title">Live Prototype</h2>
     <video
   src="Video1user_flow.mp4"
   controls
@@ -1065,7 +1079,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal" style="padding-top:72px">
     <div class="s-label">Additional Findings</div>
-    <h2 class="s-head" style="margin-top:0;">Homepage messaging was excluding the target audience</h2>
+    <h3 class="s-head" style="margin-top:0;">Homepage messaging was excluding the target audience</h3>
     <p class="body">A significant finding emerged beyond the Mentor page: the homepage was inadvertently communicating that UX Tree was for experienced designers. Early-career users — the actual target audience — felt the program wasn't meant for them.</p>
     <p class="body">Renaming the hero headline to <strong>"Build your UX career"</strong> and refining the supporting copy immediately improved comprehension during testing. Additional structural changes included:</p>
     <ul class="styled-list">
@@ -1083,7 +1097,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal">
     <div class="s-label">Reflection</div>
-    <h1 class="s-title">What I learned</h1>
+    <h2 class="s-title">What I learned</h2>
     <div class="learnings-grid">
       <div class="l-card">
         <div class="l-icon">🎯</div>
@@ -1119,7 +1133,7 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 <div class="container">
   <div class="section reveal" style="padding-bottom:120px">
     <div class="s-label">What's Next</div>
-    <h1 class="s-title">Next Steps</h1>
+    <h2 class="s-title">Next Steps</h2>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
@@ -1161,6 +1175,8 @@ footer p { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin: 0; }
 </div>
 
 <!-- ═══ FOOTER ═══ -->
+</main>
+</main>
 <footer>
   <span class="f-name">UX Tree — Case Study</span>
   <p>UX Research &amp; UI Design · 2023</p>
