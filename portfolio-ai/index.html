@@ -421,24 +421,122 @@
   </div>
 </section>
 
-<!-- PLACEHOLDER FOR FUTURE SECTIONS -->
+<!-- RESEARCH -->
 <section id="research" style="background: var(--cream);">
   <div class="container">
     <div class="phase-banner">
       <div class="phase-number">01</div>
-      <div><div class="phase-label">Phase One</div><div class="phase-heading">Research — Coming Soon</div></div>
+      <div><div class="phase-label">Phase One</div><div class="phase-heading">Research — How I Learned What I Needed to Know</div></div>
     </div>
-    <p style="color:var(--mid-grey); font-style:italic;">This section is being built. It will cover tool exploration, prompting research, and what I learned about working with AI effectively.</p>
+
+    <div class="section-eyebrow">Research Approach</div>
+    <h2 class="section-title">I didn't take a course. I just started.</h2>
+
+    <p>There was no structured research plan. No workshops. No bootcamp. I listened to a few podcasts on Spotify, watched maybe two YouTube videos, and then just started trying things. Everything else I learned by getting it wrong first.</p>
+    <p>That was the method — mistake, fix, move forward. Repeat.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>What I explored</h4>
+        <p>Notion, WordPress with Uncode templates, GitHub Pages, Claude AI, VS Code, Python scripts, GitHub Codespaces, Squarespace DNS. Each tool taught me something the next one built on.</p>
+      </div>
+      <div class="card">
+        <h4>How I learned Claude</h4>
+        <p>I started with general questions — just figuring out what it could do. Then I asked if we could try building a web page. Then I connected it to GitHub. Then it grew from there.</p>
+      </div>
+      <div class="card">
+        <h4>What I didn't know</h4>
+        <p>Front end. Back end. HTML. CSS. Git. What any of it meant. I was starting from zero — and I was okay with that, because I had to be.</p>
+      </div>
+      <div class="card">
+        <h4>What I discovered about prompting</h4>
+        <p>That talking to AI like a person doesn't work the way you'd expect. It can't read between the lines. It doesn't know what you mean — only what you say. That took a while to accept.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">💡 Key Research Finding</span>
+      <p>The biggest shift wasn't learning the tools — it was learning how to communicate with the tool. Prompting is a skill. And like any skill, it takes time, failure and repetition to get right.</p>
+    </div>
   </div>
 </section>
 
+<!-- EMPATHY MAP & PERSONA -->
 <section id="define" style="background: var(--warm-white);">
   <div class="container">
     <div class="phase-banner">
       <div class="phase-number">02</div>
-      <div><div class="phase-label">Phase Two</div><div class="phase-heading">Define — Coming Soon</div></div>
+      <div><div class="phase-label">Phase Two</div><div class="phase-heading">Define — Understanding the User (Me)</div></div>
     </div>
-    <p style="color:var(--mid-grey); font-style:italic;">This section will cover key insights, pain points, and the decisions that shaped the final approach.</p>
+
+    <div class="section-eyebrow">Empathy Map</div>
+    <h2 class="section-title">In this case study, I was the user.</h2>
+    <p>No interviews needed. No surveys. The person struggling with the product was me — and I had a very clear picture of what that felt like from the inside.</p>
+
+    <div class="card-grid" style="margin-top: 1.5rem;">
+      <div class="card">
+        <h4>🧠 Think</h4>
+        <p>"Why is this not working?" "Did I break something?" "Maybe I should just start from scratch." "Is this even worth it?"</p>
+      </div>
+      <div class="card">
+        <h4>💭 Feel</h4>
+        <p>Frustrated. Sometimes furious. Occasionally raising my voice at a screen. But also — genuinely proud when something finally clicked. And oddly supported by an AI that would tell me to take a break.</p>
+      </div>
+      <div class="card">
+        <h4>🗣 Say</h4>
+        <p>"No. This is not what I want." "You messed everything up." "Let's go back two steps." And then — "Wait. That actually worked."</p>
+      </div>
+      <div class="card">
+        <h4>🖱 Do</h4>
+        <p>Upload too many files. Lose memory. Start over. Try a different prompt. Screenshot everything. Slowly figure out that less is more.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 3rem;">Persona — Martina</h2>
+
+    <div style="background: var(--teal-ghost); border-radius: 16px; padding: 2rem; margin: 1.5rem 0; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;">
+      <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--teal-mid); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">👩‍💻</div>
+      <div>
+        <p style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 0.25rem;">Martina</p>
+        <p style="color: var(--teal-mid); font-size: 0.85rem; font-weight: 500; margin-bottom: 1rem;">UX Designer · Non-developer · Working full time · Building a portfolio on the side</p>
+        <ul>
+          <li>A year and a half gap between her Notion portfolio and discovering GitHub + Claude</li>
+          <li>Works in short sessions — 1 to 2 hours at a time, alongside a full-time job</li>
+          <li>Uses voice input extensively — which introduced errors into her prompts she didn't always notice</li>
+          <li>Spent the first 3-4 chats wasting memory uploading files — before realising Claude could access pages directly</li>
+          <li>Wanted to give up at least once — during the image alignment nightmare that lasted a month</li>
+          <li>Eventually deleted everything and started from scratch — and that's when things finally clicked</li>
+          <li>Learned that AI isn't a mind reader. It needs clear, specific, verb-first instructions — not conversations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <p>"If I say something differently, Claude doesn't know what I'm thinking at the back of my head. There's no psychological personality it's reading. I need to be very clear describing what I need."</p>
+    </div>
+
+    <h3 class="sub-title">How Might We?</h3>
+    <p>The same frustration kept surfacing across every stage of the journey — not with the tools themselves, but with the communication gap between what I meant and what I said.</p>
+
+    <div class="callout">
+      <span class="callout-label">💡 Problem Statement</span>
+      <p>How might a non-developer with no coding experience build a professional, live portfolio website — using AI as the primary tool — without a course, a teacher, or a technical background?</p>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-cell">
+        <span class="stat-number">~18</span>
+        <span class="stat-label">Months from Notion to GitHub</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Claude chats to build the portfolio</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">1</span>
+        <span class="stat-label">Full restart when images broke</span>
+      </div>
+    </div>
   </div>
 </section>
 
